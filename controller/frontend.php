@@ -21,3 +21,15 @@ function chapter()
     require('view/frontend/chapterView.php');
 }
 
+function addComment($chapterId, $author, $comment)
+{
+    echo "test";
+    $commentManager = new Tristan\P8\Model\CommentManager();
+    $affectedLines = $commentManager->postComment($chapterId, $author, $comment);
+    if($affectedLines == false){
+        throw new Exception('impossible d\'ajouter le commentaire');
+    }
+    else {
+        header('Location: index.php?action=chapter&id='. $chapterId);
+    }
+}

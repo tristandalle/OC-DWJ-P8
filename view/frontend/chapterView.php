@@ -34,7 +34,22 @@ while ($comment = $comments->fetch()){
 <?php
 }
 ?>
-
+<h4>Postez un commentaire :</h4>
+<div class="post_comment">
+    <form action="index.php?action=addComment&amp;id=<?= $chapter['id'] ?>" method="post">
+        <div>
+            <label for="author">Votre nom</label><br/>
+            <input type="text" id="author" name="author" />
+        </div>
+        <div>
+            <label for="comment">Votre commentaire</label><br/>
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <input id="submit" type="submit" />
+        </div>
+    </form>
+</div>
 
 
 
