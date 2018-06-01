@@ -7,8 +7,16 @@ try{
         if($_GET['action'] == 'home'){
             home();
         }
-        
+    elseif ($_GET['action'] == 'chapter'){
+            if (isset($_GET['id']) && $_GET['id'] > 0){
+                chapter();
+            }
+            else{
+                throw new Exception('aucun identifiant de chapître envoyé');
+            }
+        }
     }
+    
     else{
         home();
     }

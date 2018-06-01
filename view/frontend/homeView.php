@@ -1,6 +1,7 @@
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
 
 <?php ob_start(); ?>
+
 <div id="header">
     <div id="title_box">
         <h1>Billet simple pour l'Alaska</h1>

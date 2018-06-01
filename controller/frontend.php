@@ -1,6 +1,7 @@
 <?php
 
 require_once('model/ChapterManager.php');
+require_once('model/CommentManager.php');
 
 function home()
 {    
@@ -12,8 +13,11 @@ function home()
 
 function chapter()
 {
-    $postManager = new Tristan\P8\Model\ChapterManager();
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
     $chapter = $chapterManager->getChapter($_GET['id']);
+    $commentManager = new Tristan\P8\Model\CommentManager();
+    $comments = $commentManager->getComments($_GET['id']);
     
     require('view/frontend/chapterView.php');
 }
+
