@@ -25,6 +25,15 @@ html, body
     flex-direction: column;
 }
 
+#header_admin
+{
+    background-image: url(../images/admin.jpg);
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
 #title_box
 {
     background-color: #594035;
@@ -33,6 +42,21 @@ html, body
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+}
+
+#admin_link
+{
+    position: absolute;
+    
+    background-color: #594035;
+    margin: auto;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+#admin_link a, #admin_link label
+{
+    color: #F4AF93;
 }
 
 h1
@@ -125,7 +149,7 @@ h4
     border-bottom: 2px solid #F4AF93;
 }
 
-.post_comment
+.post_comment, .post_chapter
 {
     width:80%;
     margin: auto;
@@ -136,14 +160,14 @@ h4
     
 }
 
-#author
+#author, #title
 {
     width: 20%;
     padding: 5px;
     margin-bottom: 10px;
 }
 
-#comment
+#comment, #content
 {
     width: 80%;
     padding: 5px;

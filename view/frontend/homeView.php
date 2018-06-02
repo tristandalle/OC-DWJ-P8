@@ -7,7 +7,15 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Jean Forteroche</h2>
     </div>
+    <div id="admin_link">
+        <a href="#">Admin</a>
+        <form action="index.php?action=accessAdmin" method="post">
+            <label for="mot_de_passe">Mot de passe </label><input type="password" name="mot_de_passe" />
+            <input type="submit" value="Valider" />
+        </form>
+    </div>
 </div>
+
 
 <p>Derniers chapîtres publiés :</p>
  

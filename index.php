@@ -27,7 +27,23 @@ try{
             else{
                 throw new Exception('aucun identifiant de billet envoyé');
             }
-        }   
+        }
+        elseif ($_GET['action'] == 'accessAdmin'){
+            if (!isset($_POST['mot_de_passe']) || $_POST['mot_de_passe'] != "azerty"){
+                throw new Exception('mauvais mot de passe');
+            }
+            else{
+                accessAdmin();
+            }
+        }
+        elseif ($_GET['action'] == 'addChapter'){
+            if (!empty($_POST['title']) && !empty($_POST['content'])){
+                    addChapter($_POST['title'], $_POST['content']);
+            }
+            else{
+                throw new Exception('tous les champs ne sont pas remplis');
+            }
+        }
     }
     else{
         home();

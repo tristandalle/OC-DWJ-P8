@@ -25,5 +25,14 @@ class ChapterManager extends Manager
         return $chapter;
     }
     
+    public function postChapter($title, $content)
+    {
+        $db = $this->dbConnect();
+        $newChapter = $db->prepare('INSERT INTO chapters(title, content, publication_date) VALUES(?, ?, NOW())');
+        $chaptersLines = $newChapter->execute(array($title, $content));
+        
+        return $chaptersLines;
+    }
+
 }
 

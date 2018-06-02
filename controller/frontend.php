@@ -23,7 +23,6 @@ function chapter()
 
 function addComment($chapterId, $author, $comment)
 {
-    echo "test";
     $commentManager = new Tristan\P8\Model\CommentManager();
     $affectedLines = $commentManager->postComment($chapterId, $author, $comment);
     if($affectedLines == false){
@@ -31,5 +30,22 @@ function addComment($chapterId, $author, $comment)
     }
     else {
         header('Location: index.php?action=chapter&id='. $chapterId);
+    }
+}
+
+function accessAdmin()
+{
+    require('view/frontend/adminView.php');
+}
+
+function addChapter($title, $content)
+{
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
+    $chaptersLines = $chapterManager->postChapter($title, $content);
+    if($chaptersLines == false){
+        throw new Exception('impossible d\'ajouter le chapître');
+    }
+    else {
+        header('Location: index.php?');
     }
 }
