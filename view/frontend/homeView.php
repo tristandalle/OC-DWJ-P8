@@ -27,12 +27,12 @@
 
         <div class="chapter">
             <h3>
-                <?= htmlspecialchars($data['title']); ?>
+                <?= $data['title']; ?>
                 <br/><em>publié le <?= $data['publication_date_fr']; ?></em>
             </h3>
 
             <p>
-                <?= nl2br(htmlspecialchars($data['content']));?>
+                <?= nl2br($data['content']);?>
                 <br />
                 <em><a href="index.php?action=chapter&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
             </p>
