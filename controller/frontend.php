@@ -35,13 +35,18 @@ function addComment($chapterId, $author, $comment)
 
 function accessAdmin()
 {
-    require('view/frontend/adminView.php');
+    require('view/backend/adminView.php');
 }
 
-function addChapter($title, $content)
+function accessAdminCreate()
+{
+    require('view/backend/adminCreateView.php');
+}
+
+function addChapter($title, $image, $content)
 {
     $chapterManager = new Tristan\P8\Model\ChapterManager();
-    $chaptersLines = $chapterManager->postChapter($title, $content);
+    $chaptersLines = $chapterManager->postChapter($title, $image, $content);
     if($chaptersLines == false){
         throw new Exception('impossible d\'ajouter le chapître');
     }
@@ -49,3 +54,20 @@ function addChapter($title, $content)
         header('Location: index.php?');
     }
 }
+
+function adminEdit()
+{
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
+    $titles = $chapterManager->getTitles();
+    
+    require('view/backend/adminEditView.php');
+}
+
+function updateChapter($title)
+{
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
+    $deleteChapter = $chapterManager->deleteChapter($title);
+    
+    
+}
+

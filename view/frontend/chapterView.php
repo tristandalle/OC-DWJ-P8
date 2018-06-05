@@ -5,7 +5,7 @@
 <div id="header_chapter">
     <div id="title_box">
         <h1>Billet simple pour l'Alaska</h1>
-        <h2>Jean Forteroche</h2>
+        <h2><?= htmlspecialchars($chapter['title']); ?></h2>
     </div>
 </div>
 <p><a href="index.php">Retour à la liste des chapîtres</a></p>
@@ -27,9 +27,12 @@ while ($comment = $comments->fetch()){
 ?>
 <div class="comment">
     <p>
+        <span id="sigal_comment"><a href="#">Signaler ce commentaire</a></span>
         <em>Posté par : <?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></em><br/>
         <?= nl2br(htmlspecialchars($comment['comment'])) ?>
     </p>
+    
+    
 </div>
 <?php
 }

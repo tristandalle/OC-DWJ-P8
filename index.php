@@ -25,7 +25,7 @@ try{
                 }
             }
             else{
-                throw new Exception('aucun identifiant de billet envoyé');
+                throw new Exception('aucun identifiant de chapître envoyé');
             }
         }
         elseif ($_GET['action'] == 'accessAdmin'){
@@ -36,12 +36,26 @@ try{
                 accessAdmin();
             }
         }
+        elseif ($_GET['action'] == 'accessAdminCreate'){
+            accessAdminCreate();
+        }
+        elseif ($_GET['action'] == 'adminEdit'){
+            adminEdit();
+        }
         elseif ($_GET['action'] == 'addChapter'){
             if (!empty($_POST['title']) && !empty($_POST['content'])){
-                    addChapter($_POST['title'], $_POST['content']);
+                    addChapter($_POST['title'], $_POST['image'], $_POST['content']);
             }
             else{
                 throw new Exception('tous les champs ne sont pas remplis');
+            }
+        }
+        elseif ($_GET['action'] == 'updateChapter'){
+            if (!empty($_POST['title'])){
+                    updateChapter($_POST['title']);
+            }
+            else{
+                throw new Exception('aucun titre de chapître envoyé');
             }
         }
     }

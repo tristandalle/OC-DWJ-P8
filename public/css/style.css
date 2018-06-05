@@ -1,37 +1,10 @@
+/*GENERAL*/
 html, body
 {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: #BFBFBF;
-}
-
-#header
-{
-    background-image: url(../images/home.jpg);
-    background-size: cover;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    
-}
-
-#header_chapter
-{
-    background-image: url(../images/chapter.jpg);
-    background-size: cover;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-}
-
-#header_admin
-{
-    background-image: url(../images/admin.jpg);
-    background-size: cover;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
 }
 
 #title_box
@@ -42,21 +15,6 @@ html, body
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-}
-
-#admin_link
-{
-    position: absolute;
-    
-    background-color: #594035;
-    margin: auto;
-    padding: 20px;
-    border-radius: 25px;
-}
-
-#admin_link a, #admin_link label
-{
-    color: #F4AF93;
 }
 
 h1
@@ -73,6 +31,18 @@ h2
     font-size: 1.5vw;
     color: #F4AF93;
     margin: auto;
+}
+
+#intro
+{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+body > p:nth-child(3)
+{
+    text-align: center;
 }
 
 h3
@@ -95,25 +65,74 @@ h4
     text-align: center;
 }
 
+em
+{
+    font-size: 0.7vw;
+}
+
+a
+{
+    text-decoration: none;
+    color: #594035;
+}
+
+footer
+{
+    height: 100px;
+    text-align: center;
+    background-color: #594035;
+    color: #F2E1DA;
+}
+
+/*HOME*/
+#header
+{
+    background-image: url(../images/home.jpg);
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    
+}
 
 .chapters_container
 {
-    display: flex;
-    justify-content: space-around
+    width:80%;
+    margin: auto;
 }
 
 .chapter
 {
-    width:30%;
+    
+}
+
+.image_text
+{
+    display: flex;
+}
+
+.image_text img
+{
+    width: 30%;
 }
 
 .chapter p
 {
     background-color:#F2E1DA;
-    margin-top:0px;
+    margin: 0;
     padding-left: 5px;
     padding-right: 5px;
     text-align: justify;
+}
+
+/*CHAPTER VIEW */
+#header_chapter
+{
+    background-image: url(../images/chapter.jpg);
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .only_chapter
@@ -136,6 +155,16 @@ h4
 {
     width:80%;
     margin: auto;
+    
+}
+
+#sigal_comment
+{
+    float: right;
+    font-size: 0.7vw;
+    font-style: italic;
+    
+    
 }
 
 .comment p
@@ -160,7 +189,7 @@ h4
     
 }
 
-#author, #title
+#author, #title, #image
 {
     width: 20%;
     padding: 5px;
@@ -183,13 +212,49 @@ h4
     color: #F2E1DA;
 }
 
-em
+/*ADMIN VIEW*/
+#header_admin
 {
-    font-size: 0.7vw;
+    background-image: url(../images/admin.jpg);
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
-a
+#admin_link
 {
-    text-decoration: none;
-    color: #594035;
+    position: absolute;
+    
+    background-color: #594035;
+    margin: auto;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+#admin_link a, #admin_link label
+{
+    color: #F4AF93;
+}
+
+#admin_mode
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.admin_button
+{
+    background-color: #594035;
+    color: #F2E1DA;
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    
+}
+
+a.admin_button:hover
+{
+ /*POURQUOI CA MARCHE PAS!!!!!!!!!!!!!!!!!!!!!!*/
 }
