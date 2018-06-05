@@ -51,13 +51,12 @@ try{
             }
         }
         elseif ($_GET['action'] == 'updateChapter'){
-            if (!empty($_POST['title'])){
-                    updateChapter($_POST['title']);
-            }
-            else{
-                throw new Exception('aucun titre de chapître envoyé');
-            }
+            updateChapter($_POST['id'], $_POST['choice']);
         }
+        elseif ($_GET['action'] == 'rewriteChapter'){
+            rewriteChapter($_GET['id'], $_POST['title'], $_POST['image'], $_POST['content']);
+        }
+        
     }
     else{
         home();

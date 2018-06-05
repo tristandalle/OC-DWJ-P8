@@ -16,20 +16,22 @@
 <p>
     
     <label for="chapter">Choisissez un chapître : </label>
-<select name="chapters"> 
+<select name="id"> 
     <?php
-        while ($data = $titles->fetch())
+    
+        while ($data = $chapters->fetch())
         {
         ?>
-    <option value="#"><?= $data['title']?></option> 
-    
+    <option value="<?= $data['id']?>"><?= $data['title']?></option> 
+   
     <?php
     }
-    $titles->closeCursor();
+    $chapters->closeCursor();
     ?>
+    <input type="submit" id="update" name="choice" value="Mettre à jour"/>
+    <input type="submit" id="delete" name="choice" value="Supprimer"/>
 </select>
-    <input type="submit" id="update" name="update" value="Mettre à jour"/>
-    <input type="submit" id="delete" name="delete" value="Supprimer"/>
+    
 
 </p>
 </form>

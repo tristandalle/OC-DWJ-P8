@@ -29,23 +29,27 @@ class ChapterManager extends Manager
     {
         $db = $this->dbConnect();
         $newChapter = $db->prepare('INSERT INTO chapters(title, chapter_image, content, publication_date) VALUES(?, ?, ?, NOW())');
-        $chaptersLines = $newChapter->execute(array($title, $image, $content));
+        $newChapterLines = $newChapter->execute(array($title, $image, $content));
         
-        return $chaptersLines;
+        return $newChapterLines;
     }
     
-    public function getTitles()
+    public function deleteChapter($id)
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT title FROM chapters ORDER BY publication_date DESC');
+        $chapters = $db->prepare('DELETE FROM chapters WHERE id=:id');
+        $deleteLine = $chapters->execute(array('id' => $id));
         
-        return $req;
+        return $deleteLine;
     }
     
-    public function deleteChapter()
+    public function rewriteChapter($id, $title, $image, $content)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM chapters WHERE title=?');
+        $chapters = $db->prepare('UPDATE chapters SET title = :newTitle, chapter_image = :newImage, content = :newContent WHERE id=:id');
+        $rewriteLine = $chapters->execute(array('newTitle' =>$title, 'newImage' => $image, 'newContent' => $content, 'id' => $id));
+        
+        return $rewriteLine;
     }
     
 }

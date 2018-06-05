@@ -46,8 +46,8 @@ function accessAdminCreate()
 function addChapter($title, $image, $content)
 {
     $chapterManager = new Tristan\P8\Model\ChapterManager();
-    $chaptersLines = $chapterManager->postChapter($title, $image, $content);
-    if($chaptersLines == false){
+    $newChapterLines = $chapterManager->postChapter($title, $image, $content);
+    if($newChapterLines == false){
         throw new Exception('impossible d\'ajouter le chapître');
     }
     else {
@@ -58,16 +58,35 @@ function addChapter($title, $image, $content)
 function adminEdit()
 {
     $chapterManager = new Tristan\P8\Model\ChapterManager();
-    $titles = $chapterManager->getTitles();
+    $chapters = $chapterManager->getChapters();
     
     require('view/backend/adminEditView.php');
 }
 
-function updateChapter($title)
+function updateChapter($id, $choice)
 {
-    $chapterManager = new Tristan\P8\Model\ChapterManager();
-    $deleteChapter = $chapterManager->deleteChapter($title);
-    
+    if($choice == "Supprimer"){
+        $chapterManager = new Tristan\P8\Model\ChapterManager();
+        $deleteLine = $chapterManager->deleteChapter($id);
+        header('Location: index.php?');
+    }
+    else{
+        $chapterManager = new Tristan\P8\Model\ChapterManager();
+        $chapter = $chapterManager->getChapter($id);
+        require('view/backend/adminRewriteView.php');
+    }
     
 }
 
+function rewriteChapter($id, $title, $image, $content)
+{
+        $chapterManager = new Tristan\P8\Model\ChapterManager();
+        $rewriteLine = $chapterManager->rewriteChapter($id, $title, $image, $content);
+        if($rewriteLine == false){
+        throw new Exception('impossible d\'ajouter le chapître');
+    }
+    else {
+        header('Location: index.php?');
+    }
+}
+    
