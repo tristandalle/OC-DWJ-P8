@@ -47,7 +47,7 @@ class ChapterManager extends Manager
     public function rewriteChapter($id, $title, $image, $content, $resume)
     {
         $db = $this->dbConnect();
-        $chapters = $db->prepare('UPDATE chapters SET title = :newTitle, chapter_image = :newImage, content = :newContent, chapter_resume = :newResume WHERE id=:id');
+        $chapters = $db->prepare('UPDATE chapters SET title = :newTitle, chapter_image = :newImage, content = :newContent, chapter_resume = :newResume WHERE id= :id');
         $rewriteLine = $chapters->execute(array('newTitle' =>$title, 'newImage' => $image, 'newContent' => $content, 'newResume' => $resume, 'id' => $id));
         
         return $rewriteLine;

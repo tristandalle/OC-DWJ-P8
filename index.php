@@ -56,6 +56,9 @@ try{
         elseif ($_GET['action'] == 'rewriteChapter'){
             rewriteChapter($_GET['id'], $_POST['title'], $_POST['image'], $_POST['content'], $_POST['resume']);
         }
+        elseif ($_GET['action'] == 'signalComment'){
+            signalComment($_GET['id'], $_GET['chapterId']);
+        }
         
     }
     else{

@@ -22,12 +22,15 @@
 
 <h4>Vos commentaires :</h4>
 
+
+
+
 <?php
 while ($comment = $comments->fetch()){
 ?>
 <div class="comment">
     <p>
-        <span id="sigal_comment"><a href="#">Signaler ce commentaire</a></span>
+        <span id="signal_comment"><a href="index.php?action=signalComment&amp;id=<?= $comment['id']?>&amp;chapterId=<?= $chapter['id'] ?>"><?= $comment['comment_signal'] ?></a></span>
         <em>Posté par : <?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></em><br/>
         <?= nl2br(htmlspecialchars($comment['comment'])) ?>
     </p>

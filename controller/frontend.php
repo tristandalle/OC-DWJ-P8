@@ -89,4 +89,12 @@ function rewriteChapter($id, $title, $image, $content, $resume)
         header('Location: index.php?');
     }
 }
+
+function signalComment($commentId, $chapterId)
+{
+    $commentManager = new Tristan\P8\Model\CommentManager();
+    $signaledLine = $commentManager->changeSignalComment($commentId);
+    
+    header('Location: index.php?action=chapter&id='. $chapterId);
+}
     
