@@ -83,10 +83,10 @@ function rewriteChapter($id, $title, $image, $content, $resume)
         $chapterManager = new Tristan\P8\Model\ChapterManager();
         $rewriteLine = $chapterManager->rewriteChapter($id, $title, $image, $content, $resume);
         if($rewriteLine == false){
-        throw new Exception('impossible de mettre à jour le chapître');
-    }
-    else {
-        header('Location: index.php?');
+            throw new Exception('impossible de mettre à jour le chapître');
+        }
+        else {
+            header('Location: index.php?');
     }
 }
 
@@ -96,5 +96,27 @@ function signalComment($commentId, $chapterId)
     $signaledLine = $commentManager->changeSignalComment($commentId);
     
     header('Location: index.php?action=chapter&id='. $chapterId);
+}
+
+function moderateComments()
+{
+    $commentManager = new Tristan\P8\Model\CommentManager();
+    $signaledComments = $commentManager->getSignalComment();
+    
+    require('view/backend/adminModeratorView.php');
+}
+
+function updateComment($id, $choice)
+{
+    if($choice == "Valider ce commentaire"){
+        $commentManager = new Tristan\P8\Model\CommentManager();
+        $validatedComment = $commentManager->validateSignalComment($id);
+    }
+    else{
+        $commentManager = new Tristan\P8\Model\CommentManager();
+        $delaledComment = $commentManager->delateSignalComment($id);
+    }
+    
+    header('Location: index.php?action=adminModerator');
 }
     

@@ -28,10 +28,36 @@ class CommentManager extends Manager
     public function changeSignalComment($commentId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('UPDATE comments SET comment_signal = "Ce commentaire a été signalé" WHERE id= :id');
+        $comments = $db->prepare('UPDATE comments SET comment_signal = "Ce commentaire a été signalé" WHERE id= :id && comment_signal = "Signaler ce commentaire"');
         $signaledLine = $comments->execute(array('id' => $commentId));
         
         return $signaledLine;
+    }
+    
+    public function getSignalComment()
+    {
+        $db = $this->dbConnect();
+        $signaledComments = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date,\'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, comment_signal FROM comments WHERE comment_signal = "Ce commentaire a été signalé" ORDER BY comment_date DESC');
+        
+        return $signaledComments;
+    }
+    
+    public function validateSignalComment($id)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('UPDATE comments SET comment_signal = "Ce commentaire a été validé " WHERE id= :id');
+        $signaledLine = $comments->execute(array('id' => $id));
+        
+        return $signaledLine;
+    }
+    
+    public function delateSignalComment($id)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('DELETE FROM comments WHERE id=:id');
+        $deleteLine = $comments->execute(array('id' => $id));
+        
+        return $deleteLine;
     }
 
 }

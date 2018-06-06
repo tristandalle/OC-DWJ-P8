@@ -59,6 +59,12 @@ try{
         elseif ($_GET['action'] == 'signalComment'){
             signalComment($_GET['id'], $_GET['chapterId']);
         }
+        elseif ($_GET['action'] == 'adminModerator'){
+            moderateComments();
+        }
+        elseif ($_GET['action'] == 'updateComment'){
+            updateComment($_GET['id'], $_POST['choice']);
+        }
         
     }
     else{
