@@ -43,10 +43,10 @@ function accessAdminCreate()
     require('view/backend/adminCreateView.php');
 }
 
-function addChapter($title, $image, $content)
+function addChapter($title, $image, $content, $resume)
 {
     $chapterManager = new Tristan\P8\Model\ChapterManager();
-    $newChapterLines = $chapterManager->postChapter($title, $image, $content);
+    $newChapterLines = $chapterManager->postChapter($title, $image, $content, $resume);
     if($newChapterLines == false){
         throw new Exception('impossible d\'ajouter le chapître');
     }
@@ -78,12 +78,12 @@ function updateChapter($id, $choice)
     
 }
 
-function rewriteChapter($id, $title, $image, $content)
+function rewriteChapter($id, $title, $image, $content, $resume)
 {
         $chapterManager = new Tristan\P8\Model\ChapterManager();
-        $rewriteLine = $chapterManager->rewriteChapter($id, $title, $image, $content);
+        $rewriteLine = $chapterManager->rewriteChapter($id, $title, $image, $content, $resume);
         if($rewriteLine == false){
-        throw new Exception('impossible d\'ajouter le chapître');
+        throw new Exception('impossible de mettre à jour le chapître');
     }
     else {
         header('Location: index.php?');

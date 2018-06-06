@@ -26,6 +26,10 @@
             <textarea id="content" name="content" ><?= $chapter['content'] ?></textarea>
         </div>
         <div>
+            <label for="resume">Résumé du chapître</label><br/>
+            <textarea id="resume" name="resume"><?= $chapter['chapter_resume'] ?></textarea>
+        </div>
+        <div>
             <input id="submit" type="submit" />
         </div>
     </form>

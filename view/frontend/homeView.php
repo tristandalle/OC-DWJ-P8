@@ -39,9 +39,7 @@ Phasellus eros sapien, pellentesque non convallis eget, faucibus eget libero. Cr
                 </h3>
                 <div class="image_text">
                     <img src="<?= $data['chapter_image']; ?>">
-                    <p>
-                        <?= nl2br($data['content']);?>                        
-                    </p>
+                        <?= $data['chapter_resume'];?>
                 </div>
                 </a>
             </div>

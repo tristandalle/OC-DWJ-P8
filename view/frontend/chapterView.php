@@ -1,22 +1,22 @@
-<?php $title = htmlspecialchars($chapter['title']); ?>
+<?php $title = $chapter['title']; ?>
 
 <?php ob_start(); ?>
 
 <div id="header_chapter">
     <div id="title_box">
         <h1>Billet simple pour l'Alaska</h1>
-        <h2><?= htmlspecialchars($chapter['title']); ?></h2>
+        <h2><?= $chapter['title']; ?></h2>
     </div>
 </div>
 <p><a href="index.php">Retour à la liste des chapîtres</a></p>
 <div class="only_chapter">
             <h3>
-                <?= htmlspecialchars($chapter['title']); ?>
+                <?= $chapter['title']; ?>
                 <br/><em>publié le <?= $chapter['publication_date_fr']; ?></em>
             </h3>
 
             <p>
-                <?= nl2br(htmlspecialchars($chapter['content']));?>
+                <?= $chapter['content'];?>
             </p>
 </div>
 

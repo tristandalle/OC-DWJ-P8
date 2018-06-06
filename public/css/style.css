@@ -50,7 +50,7 @@ h3
     background-color:#594035;
     color:#F2E1DA;
     font-size:1vw;
-    margin-bottom:0px;
+    margin: 0;
     text-align: center;
 }
 
@@ -99,30 +99,38 @@ footer
 {
     width:80%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .chapter
 {
+    background-color:#F2E1DA;
+    margin-bottom: 20px;
+    overflow:visible;
     
 }
 
 .image_text
 {
-    display: flex;
+    
 }
 
 .image_text img
 {
-    width: 30%;
+    max-width: 20%;
+    float: left;
+    margin-right: 5px;
 }
 
 .chapter p
 {
-    background-color:#F2E1DA;
-    margin: 0;
-    padding-left: 5px;
     padding-right: 5px;
+    padding-left: 5px;
+    margin: 0;
     text-align: justify;
+    font-family: 'Libre Baskerville', serif;
 }
 
 /*CHAPTER VIEW */
@@ -149,6 +157,7 @@ footer
     padding-left: 5px;
     padding-right: 5px;
     text-align: justify;
+    font-family: 'Libre Baskerville', serif;
 }
 
 .comment
@@ -194,6 +203,11 @@ footer
     width: 20%;
     padding: 5px;
     margin-bottom: 10px;
+}
+
+.post_chapter > form:nth-child(1) > div:nth-child(4)
+{
+    margin-top: 10px;
 }
 
 #comment, #content

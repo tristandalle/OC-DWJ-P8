@@ -43,8 +43,8 @@ try{
             adminEdit();
         }
         elseif ($_GET['action'] == 'addChapter'){
-            if (!empty($_POST['title']) && !empty($_POST['content'])){
-                    addChapter($_POST['title'], $_POST['image'], $_POST['content']);
+            if (!empty($_POST['title']) && !empty($_POST['image']) && !empty($_POST['content']) && !empty($_POST['resume'])){
+                    addChapter($_POST['title'], $_POST['image'], $_POST['content'], $_POST['resume']);
             }
             else{
                 throw new Exception('tous les champs ne sont pas remplis');
@@ -54,7 +54,7 @@ try{
             updateChapter($_POST['id'], $_POST['choice']);
         }
         elseif ($_GET['action'] == 'rewriteChapter'){
-            rewriteChapter($_GET['id'], $_POST['title'], $_POST['image'], $_POST['content']);
+            rewriteChapter($_GET['id'], $_POST['title'], $_POST['image'], $_POST['content'], $_POST['resume']);
         }
         
     }
