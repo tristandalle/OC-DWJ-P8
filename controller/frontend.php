@@ -7,6 +7,8 @@ function home()
 {    
     $chapterManager = new Tristan\P8\Model\ChapterManager();
     $chapters = $chapterManager->getChapters();
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
+    $titles = $chapterManager->getTitles();
     
     require('view/frontend/homeView.php');
 }
@@ -17,6 +19,8 @@ function chapter()
     $chapter = $chapterManager->getChapter($_GET['id']);
     $commentManager = new Tristan\P8\Model\CommentManager();
     $comments = $commentManager->getComments($_GET['id']);
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
+    $titles = $chapterManager->getTitles();
     
     require('view/frontend/chapterView.php');
 }

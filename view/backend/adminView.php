@@ -3,14 +3,13 @@
 <?php ob_start(); ?>
 
 <div id="header_admin">
-    <div id="title_box">
-        <h1>Bienvenue</h1>
-        <h2>Jean Forteroche</h2>
+    <div id="title_box_admin">
+        <h1>ADMIN</h1>
     </div>
 </div>
 
 
-<div id="admin_mode">
+<div class="admin_mode">
     
     <a href="index.php?action=accessAdminCreate" class="admin_button">Publier un nouveau chapître</a>
     <a href="index.php?action=adminEdit" class="admin_button">Mettre à jour ou supprimer un chapître</a>

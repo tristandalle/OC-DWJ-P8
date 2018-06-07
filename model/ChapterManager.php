@@ -26,6 +26,14 @@ class ChapterManager extends Manager
         return $chapter;
     }
     
+    public function getTitles()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, title FROM chapters ORDER BY id');
+        
+        return $req;
+    }
+    
     public function postChapter($title, $image, $content, $resume)
     {
         $db = $this->dbConnect();
