@@ -16,6 +16,15 @@
     <a href="index.php?action=adminModerator" class="admin_button">Modérer les commentaires signalés</a>
     <a href="index.php" class="admin_button">Quitter la page Admin</a>
 </div>
+
+<form action="index.php?action=newmember" method="post">
+    <label for="pseudo">pseudo</label>
+    <input type="text" name="pseudo">
+    <label for="pass">mdp</label>
+    <input type="pass" name="pass">
+    <input type="submit">
+
+</form>
  
 <?php $content = ob_get_clean(); ?>
 

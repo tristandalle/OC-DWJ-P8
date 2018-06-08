@@ -2,6 +2,7 @@
 
 require_once('model/ChapterManager.php');
 require_once('model/CommentManager.php');
+require_once('model/MemberManager.php');
 
 function home()
 {    
@@ -37,9 +38,27 @@ function addComment($chapterId, $author, $comment)
     }
 }
 
-function accessAdmin()
+function accessAdmin($pseudo, $pass)
 {
-    require('view/backend/adminView.php');
+    $memberManager = new Tristan\P8\Model\MemberManager();
+    $verify = $memberManager->verifyMember($pseudo, $pass);
+    
+    $correctPassword = password_verify($pass, $verify['pass']);
+    
+    if (!$verify){
+        throw new Exception('pseudo ou mot de passe incorrect');
+    }
+    else{
+        if($correctPassword){
+            session_start();
+            $_SESSION['id'] = $verify['id'];
+            $_SESSION['pseudo'] = $pseudo;
+            require('view/backend/adminView.php');
+        }
+        else{
+            throw new Exception('pseudo ou mot de passe incorrect');
+        }
+    }
 }
 
 function accessAdminCreate()
@@ -141,4 +160,20 @@ function accessAbout()
     
     require('view/frontend/aboutView.php');
 }
+
+
+
+
+
+
+
+/*POUR AJOUTER UN NOUVEAU MEMBRE ADMIN
+function newmember($pseudo, $pass)
+{
+    $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+    $memberManager = new Tristan\P8\Model\MemberManager();
+    $newLine = $memberManager->addMembre($pseudo, $pass_hache);
+    var_dump($newLine);
+    echo "ok membre ajouté";
+}*/
     

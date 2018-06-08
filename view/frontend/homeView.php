@@ -32,8 +32,14 @@ $titles->closeCursor();
             <ul id="ul_form">
                 <li id="li_form">
                     <form action="index.php?action=accessAdmin" method="post">
-                        <label for="mot_de_passe">Mot de passe </label>
-                        <input type="password" name="mot_de_passe" />
+                        <p>
+                            <label for="pseudo">Pseudo</label>
+                            <input type="text" name="pseudo">
+                        </p>
+                        <p>
+                            <label for="pass">Mot de passe </label>
+                            <input type="password" name="pass" />
+                        </p>
                         <input id="valid_button" type="submit" value="Valider" />
                     </form>
                 </li>

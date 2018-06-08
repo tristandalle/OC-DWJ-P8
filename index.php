@@ -29,12 +29,7 @@ try{
             }
         }
         elseif ($_GET['action'] == 'accessAdmin'){
-            if (!isset($_POST['mot_de_passe']) || $_POST['mot_de_passe'] != "azerty"){
-                throw new Exception('mauvais mot de passe');
-            }
-            else{
-                accessAdmin();
-            }
+            accessAdmin($_POST['pseudo'], $_POST['pass']);
         }
         elseif ($_GET['action'] == 'accessAdminCreate'){
             accessAdminCreate();
@@ -70,6 +65,11 @@ try{
         }
         elseif ($_GET['action'] == 'updateComment'){
             updateComment($_GET['id'], $_POST['choice']);
+        }
+        
+        //A sup
+        elseif ($_GET['action'] == 'newmember'){
+            newmember($_POST['pseudo'], $_POST['pass']);
         }
         
     }
