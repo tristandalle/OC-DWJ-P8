@@ -20,7 +20,7 @@
         </p>
         <p>
             <label for="image">Image du chapître</label><br/>
-            <input type="text" id="image" name="image" placeholder="dossier_du_fichier/nom_du_fichier"/>
+            <input type="file" id="image" name="image" placeholder="dossier_du_fichier/nom_du_fichier"/>
         </p>
         <p id="content_text_area">
             <label for="content">Texte du chapître</label><br/>

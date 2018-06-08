@@ -411,3 +411,16 @@ footer
 {
     color: #E55812
 }
+
+#header_about img
+{
+    display: block;
+    margin:auto;
+    margin-top: 50px;
+}
+
+#header_about h1
+{
+    text-align: center;
+    margin-bottom: 50px;
+}

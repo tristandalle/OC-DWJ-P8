@@ -9,7 +9,7 @@
             <a href="index.php">Accueil</a>
         </li>
         <li>
-            <a href="#">&Agrave; propos de l'auteur</a>
+            <a href="index.php?action=accessAbout">&Agrave; propos de l'auteur</a>
         </li>
         <li>
             <a href="index.php#intro">Chapîtres</a>

@@ -42,6 +42,9 @@ try{
         elseif ($_GET['action'] == 'adminEdit'){
             adminEdit();
         }
+        elseif ($_GET['action'] == 'accessAbout'){
+            accessAbout();
+        }
         elseif ($_GET['action'] == 'addChapter'){
             if (!empty($_POST['title']) && !empty($_POST['image']) && !empty($_POST['content']) && !empty($_POST['resume'])){
                     addChapter($_POST['title'], $_POST['image'], $_POST['content'], $_POST['resume']);
@@ -52,6 +55,9 @@ try{
         }
         elseif ($_GET['action'] == 'updateChapter'){
             updateChapter($_POST['id'], $_POST['choice']);
+        }
+        elseif ($_GET['action'] == 'confirmDelete'){
+            confirmDelete($_GET['id'], $_POST['confirm']);
         }
         elseif ($_GET['action'] == 'rewriteChapter'){
             rewriteChapter($_GET['id'], $_POST['title'], $_POST['image'], $_POST['content'], $_POST['resume']);

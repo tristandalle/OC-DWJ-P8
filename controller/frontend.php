@@ -21,7 +21,7 @@ function chapter()
     $comments = $commentManager->getComments($_GET['id']);
     $chapterManager = new Tristan\P8\Model\ChapterManager();
     $titles = $chapterManager->getTitles();
-    
+    var_dump($comments);
     require('view/frontend/chapterView.php');
 }
 
@@ -70,9 +70,8 @@ function adminEdit()
 function updateChapter($id, $choice)
 {
     if($choice == "Supprimer"){
-        $chapterManager = new Tristan\P8\Model\ChapterManager();
-        $deleteLine = $chapterManager->deleteChapter($id);
-        header('Location: index.php?');
+        $message = "Voulez-vous vraiment supprimer ce chapître ?";
+        require('view/error/errorConfirmView.php');
     }
     else{
         $chapterManager = new Tristan\P8\Model\ChapterManager();
@@ -80,6 +79,17 @@ function updateChapter($id, $choice)
         require('view/backend/adminRewriteView.php');
     }
     
+}
+function confirmDelete($id, $confirm)
+{
+        if($confirm == "oui"){
+            $chapterManager = new Tristan\P8\Model\ChapterManager();
+            $deleteLine = $chapterManager->deleteChapter($id);
+            header('Location: index.php?');
+        }
+        else{
+            header('Location: index.php?action=adminEdit'); 
+        }
 }
 
 function rewriteChapter($id, $title, $image, $content, $resume)
@@ -122,5 +132,13 @@ function updateComment($id, $choice)
     }
     
     header('Location: index.php?action=adminModerator');
+}
+
+function accessAbout()
+{
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
+    $titles = $chapterManager->getTitles();
+    
+    require('view/frontend/aboutView.php');
 }
     
