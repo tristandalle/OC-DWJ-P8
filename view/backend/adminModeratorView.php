@@ -5,7 +5,7 @@
 <div id="header_admin">
     <div id="title_box_admin">
         <h1>ADMIN</h1>
-        <h2>Espace Modérateur</h2>
+        <h2><?=$_SESSION['pseudo']?>, sur cette page vous pouvez valider ou supprimer<br/>les commentaires qui ont été signalés</h2>
     </div>
 </div>
 
@@ -34,10 +34,14 @@ while ($signaledComment = $signaledComments->fetch()){
 <?php
 }
 ?>
- </div>
-<div class="admin_mode">
-<a class="admin_button" href="index.php" class="#">Quitter la page Admin</a>
 </div>
+<div class="admin_mode">
+<a href="index.php?action=accessHomeAdmin" class="admin_button">Revenir au menu Admin</a>
+</div>
+<div class="admin_mode">
+<a href="index.php?action=disconnection" class="admin_button">Quitter la page Admin</a>
+</div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

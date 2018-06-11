@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <nav>
-    <a href="#"><img id="logo" src="public/images/logoJF100.png"/></a>
+    <a href="#"><img id="logo" src="public/images/logoJF100.png" alt="logo JF"/></a>
     <ul id="menu">
         <li>
             <a href="#">Accueil</a>
@@ -56,42 +56,55 @@ $titles->closeCursor();
 </div>
 
 <div id="intro">
-    <p>Bienvenue dans mon roman<br/><strong>"Billet simple pour l'Alaska"</strong><br/>Phasellus eros sapien, pellentesque non convallis eget, faucibus eget libero. Cras eu lacus et mi eleifend suscipit. Curabitur quis sapien turpis. Sed mattis magna non lorem egestas, nec efficitur ex semper. Sed iaculis sapien a augue ultrices, eu vulputate metus euismod. Maecenas gravida orci ac neque ultricies pellentesque. Nam vel mauris at tellus euismod sagittis. Aenean vel dui nec sem rhoncus tristique a eu magna. Nunc sit amet sem sodales libero tempus rutrum a eu ipsum. </p>
+    <p>
+        Bienvenue dans mon roman<br/><strong>"Billet simple pour l'Alaska"</strong><br/>Phasellus eros sapien, pellentesque non convallis eget, faucibus eget libero. Cras eu lacus et mi eleifend suscipit. Curabitur quis sapien turpis. Sed mattis magna non lorem egestas, nec efficitur ex semper. Sed iaculis sapien a augue ultrices, eu vulputate metus euismod. Maecenas gravida orci ac neque ultricies pellentesque. Nam vel mauris at tellus euismod sagittis. Aenean vel dui nec sem rhoncus tristique a eu magna. Nunc sit amet sem sodales libero tempus rutrum a eu ipsum. 
+    </p>
 </div>
 
 <p id="text_center"><strong>Derniers chapîtres publiés :</strong></p>
 
-
-    <div class="chapters_container">
-        <?php
-        while ($data = $chapters->fetch())
-        {
-        ?>
+<div class="chapters_container">
+<?php
+while ($data = $chapters->fetch())
+{
+?>
             
-            <div class="chapter">
-                <a href="index.php?action=chapter&amp;id=<?= $data['id'] ?>">
-                <h3>
-                    <?= $data['title']; ?>
-                    <br/><em>publié le <?= $data['publication_date_fr']; ?></em>
-                </h3>
-                <div class="image_text">
-                    <img src="<?= $data['chapter_image']; ?>">
-                        <?= $data['chapter_resume'];?>
-                </div>
-                </a>
+    <div class="chapter">
+        <a href="index.php?action=chapter&amp;id=<?= $data['id'] ?>">
+            <h3>
+                <?= $data['title']; ?>
+                <br/><em>publié le <?= $data['publication_date_fr']; ?></em>
+            </h3>
+            <div class="image_text">
+                <img src="<?= $data['chapter_image']; ?>">
+                <?= $data['chapter_resume'];?>
             </div>
+        </a>
+    </div>
 
 
-    <?php
-    }
+<?php
+}
 
-    $chapters->closeCursor();
-    ?>
+$chapters->closeCursor();
+?>
 </div>
 
-<footer>
-    <p>pied de page</p>
-</footer>
+<div id="footer">
+    <div id="left_footer">
+        <p>Contactez-moi :</p>
+        <p>Jean Forteroche<br/>Maison d'édition JF<br/>128, rue des éditeurs<br/>75017 Paris</p>
+    </div>
+    <div id="center_footer">
+        <a href="#center_footer"><img src="public/images/if_square-facebook_317727.png"/></a>
+        <a href="#center_footer"><img src="public/images/if_square-twitter_317723.png"/></a>
+        <a href="#center_footer"><img src="public/images/if_square-google-plus_317726.png"/></a>
+        <a href="#center_footer"><img src="public/images/if_instagram_317738.png"/></a>
+    </div>
+    <div id="right_footer">
+        <p>© JForteroche 2018</p>
+    </div>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 

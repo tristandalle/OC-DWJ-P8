@@ -5,7 +5,7 @@
 <div id="header_admin">
     <div id="title_box_admin">
         <h1>ADMIN</h1>
-        <h2>Espace édition</h2>
+        <h2><?=$_SESSION['pseudo']?>, sur cette page vous pouvez<br/>modifier ou supprimer un chapître</h2>
     </div>
 </div>
 
@@ -39,7 +39,10 @@
 </div>
 
 <div class="admin_mode">
-<a class="admin_button" href="index.php" class="#">Quitter la page Admin</a>
+<a href="index.php?action=accessHomeAdmin" class="admin_button">Revenir au menu Admin</a>
+</div>
+<div class="admin_mode">
+<a href="index.php?action=disconnection" class="admin_button">Quitter la page Admin</a>
 </div>
  
 <?php $content = ob_get_clean(); ?>

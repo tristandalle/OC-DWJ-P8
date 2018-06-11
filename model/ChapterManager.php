@@ -10,7 +10,7 @@ class ChapterManager extends Manager
     public function getChapters()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, chapter_image, content, chapter_resume, DATE_FORMAT(publication_date, \'%d/%m/%Y à %Hh%imin%ss\') AS publication_date_fr FROM chapters ORDER BY publication_date DESC LIMIT 0, 5');
+        $req = $db->query('SELECT id, title, chapter_image, content, chapter_resume, DATE_FORMAT(publication_date, \'%d/%m/%Y à %Hh%imin%ss\') AS publication_date_fr FROM chapters ORDER BY publication_date DESC');
         
         return $req;
         
@@ -34,11 +34,11 @@ class ChapterManager extends Manager
         return $req;
     }
     
-    public function postChapter($title, $image, $content, $resume)
+    public function postChapter($title, $imageOk, $content, $resume)
     {
         $db = $this->dbConnect();
         $newChapter = $db->prepare('INSERT INTO chapters(title, chapter_image, content, chapter_resume, publication_date) VALUES(?, ?, ?, ?, NOW())');
-        $newChapterLines = $newChapter->execute(array($title, $image, $content, $resume));
+        $newChapterLines = $newChapter->execute(array($title, $imageOk, $content, $resume));
         
         return $newChapterLines;
     }
@@ -52,11 +52,11 @@ class ChapterManager extends Manager
         return $deleteLine;
     }
     
-    public function rewriteChapter($id, $title, $image, $content, $resume)
+    public function rewriteChapter($id, $title, $imageOk, $content, $resume)
     {
         $db = $this->dbConnect();
         $chapters = $db->prepare('UPDATE chapters SET title = :newTitle, chapter_image = :newImage, content = :newContent, chapter_resume = :newResume WHERE id= :id');
-        $rewriteLine = $chapters->execute(array('newTitle' =>$title, 'newImage' => $image, 'newContent' => $content, 'newResume' => $resume, 'id' => $id));
+        $rewriteLine = $chapters->execute(array('newTitle' =>$title, 'newImage' => $imageOk, 'newContent' => $content, 'newResume' => $resume, 'id' => $id));
         
         return $rewriteLine;
     }

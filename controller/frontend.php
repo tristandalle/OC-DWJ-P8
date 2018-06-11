@@ -22,7 +22,6 @@ function chapter()
     $comments = $commentManager->getComments($_GET['id']);
     $chapterManager = new Tristan\P8\Model\ChapterManager();
     $titles = $chapterManager->getTitles();
-    var_dump($comments);
     require('view/frontend/chapterView.php');
 }
 
@@ -61,6 +60,10 @@ function accessAdmin($pseudo, $pass)
     }
 }
 
+function accessHomeAdmin()
+{
+    require('view/backend/adminView.php');
+}
 function accessAdminCreate()
 {
     require('view/backend/adminCreateView.php');
@@ -68,15 +71,40 @@ function accessAdminCreate()
 
 function addChapter($title, $image, $content, $resume)
 {
+    if(isset($image) && $image['error'] == 0){
+                    if ($image['size'] <= 5000000){
+                        $fileInfo = pathinfo($image['name']);
+                        $extensionUpload = $fileInfo['extension'];
+                        $extensionsOk = array('jpg', 'jpeg');
+                        if (in_array($extensionUpload, $extensionsOk)){
+                            $tmp_name = $image["tmp_name"];
+                            $name = basename($image["name"]);
+                            $uploads_dir = 'public/images/uploads';
+                            move_uploaded_file($tmp_name, "$uploads_dir/$name");
+                            $imageOk = "$uploads_dir/$name";
+                        }
+                        else{
+                            throw new Exception('le fichier n\'est pas au bon format');
+                        }
+                    }
+                    else{
+                        throw new Exception('le fichier est trop gros');
+                    }
+                }
+                else{
+                    throw new Exception('le transfert du fichier a échoué');
+                }
+    
     $chapterManager = new Tristan\P8\Model\ChapterManager();
-    $newChapterLines = $chapterManager->postChapter($title, $image, $content, $resume);
+    $newChapterLines = $chapterManager->postChapter($title, $imageOk, $content, $resume);
     if($newChapterLines == false){
         throw new Exception('impossible d\'ajouter le chapître');
     }
     else {
-        header('Location: index.php?');
+        throw new Exception('le chapître " ' . $title . ' " a bien été publié');
     }
 }
+
 
 function adminEdit()
 {
@@ -90,6 +118,7 @@ function updateChapter($id, $choice)
 {
     if($choice == "Supprimer"){
         $message = "Voulez-vous vraiment supprimer ce chapître ?";
+        $link = "confirmDelete&amp;id= $id ";
         require('view/error/errorConfirmView.php');
     }
     else{
@@ -104,7 +133,7 @@ function confirmDelete($id, $confirm)
         if($confirm == "oui"){
             $chapterManager = new Tristan\P8\Model\ChapterManager();
             $deleteLine = $chapterManager->deleteChapter($id);
-            header('Location: index.php?');
+            throw new Exception('le chapître a bien été supprimé');
         }
         else{
             header('Location: index.php?action=adminEdit'); 
@@ -113,13 +142,36 @@ function confirmDelete($id, $confirm)
 
 function rewriteChapter($id, $title, $image, $content, $resume)
 {
+        if(isset($image) && $image['error'] == 0){
+                    if ($image['size'] <= 5000000){
+                        $fileInfo = pathinfo($image['name']);
+                        $extensionUpload = $fileInfo['extension'];
+                        $extensionsOk = array('jpg', 'jpeg');
+                        if (in_array($extensionUpload, $extensionsOk)){
+                            $tmp_name = $image["tmp_name"];
+                            $name = basename($image["name"]);
+                            $uploads_dir = 'public/images/uploads';
+                            move_uploaded_file($tmp_name, "$uploads_dir/$name");
+                            $imageOk = "$uploads_dir/$name";
+                        }
+                        else{
+                            throw new Exception('le fichier n\'est pas au bon format');
+                        }
+                    }
+                    else{
+                        throw new Exception('le fichier est trop gros');
+                    }
+                }
+                else{
+                    throw new Exception('le transfert du fichier a échoué');
+                }
         $chapterManager = new Tristan\P8\Model\ChapterManager();
-        $rewriteLine = $chapterManager->rewriteChapter($id, $title, $image, $content, $resume);
+        $rewriteLine = $chapterManager->rewriteChapter($id, $title, $imageOk, $content, $resume);
         if($rewriteLine == false){
             throw new Exception('impossible de mettre à jour le chapître');
         }
         else {
-            header('Location: index.php?');
+            throw new Exception('le chapître " ' . $title . ' " a bien été mis à jour');
     }
 }
 
@@ -141,7 +193,10 @@ function moderateComments()
 
 function updateComment($id, $choice)
 {
-    if($choice == "Valider ce commentaire"){
+    $message = "Voulez-vous vraiment " . strtolower($choice) . "?";
+    $link = "confirmUpdateComment&amp;choice= $choice &amp;id= $id ";
+    require('view/error/errorConfirmView.php');
+    /*if($choice == "Valider ce commentaire"){
         $commentManager = new Tristan\P8\Model\CommentManager();
         $validatedComment = $commentManager->validateSignalComment($id);
     }
@@ -150,7 +205,26 @@ function updateComment($id, $choice)
         $delaledComment = $commentManager->delateSignalComment($id);
     }
     
-    header('Location: index.php?action=adminModerator');
+    throw new Exception('Votre choix : " ' . $choice . ' " a bien été pris en compte');*/
+}
+
+function confirmUpdateComment($id, $choice, $confirm){
+    
+    if($confirm == "oui"){
+        if($choice == "Valider ce commentaire"){
+        $commentManager = new Tristan\P8\Model\CommentManager();
+        $validatedComment = $commentManager->validateSignalComment($id);
+    }
+    else{
+        $commentManager = new Tristan\P8\Model\CommentManager();
+        $delaledComment = $commentManager->delateSignalComment($id);
+    }
+    
+    throw new Exception('Votre choix : "' . strtolower($choice) .  '" a bien été pris en compte');
+        }
+        else{
+            echo "<script> javascript:history.go(-2)</script>";
+        }
 }
 
 function accessAbout()
@@ -161,8 +235,23 @@ function accessAbout()
     require('view/frontend/aboutView.php');
 }
 
+function disconnection()
+{
+    $message = "Voulez-vous vraiment vous déconnecter ?";
+    $link = "confirmDisconnect";
+    require('view/error/errorConfirmView.php');
+}
 
-
+function confirmDisconnect($confirm){
+    if($confirm == "oui"){
+        session_start();
+        session_destroy();
+        header('Location: index.php?');
+        }
+        else{
+            echo "<script> javascript:history.go(-2)</script>";
+        }
+}
 
 
 
@@ -173,7 +262,6 @@ function newmember($pseudo, $pass)
     $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
     $memberManager = new Tristan\P8\Model\MemberManager();
     $newLine = $memberManager->addMembre($pseudo, $pass_hache);
-    var_dump($newLine);
     echo "ok membre ajouté";
 }*/
     
