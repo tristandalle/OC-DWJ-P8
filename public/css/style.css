@@ -15,11 +15,16 @@ nav
     position: fixed;
     top: 0;
     width: 100%;
+    height: 60px;
     background-color: #053C5E;
+    font-size: 1vw;
+    display: flex;
 }
 
 #logo
 {
+    display: block;
+    width: 5vw;
     position: absolute;
     left: 5%;
     top: 10px;
@@ -27,75 +32,90 @@ nav
     padding: 2px;
     border-radius: 50%;
     border: solid 3px #053C5E;
-    box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);    
+    box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);  
+    z-index: 3;
+    transition: all .3s ease;
 }
 
-#menu, #menu ul
+#logo:hover
 {
-    padding:0;
-    margin: 20px;;
-    list-style:none;
-    text-align:center;
+    border-color: #FFF;
+}
+
+#menu
+{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    padding: 0 15px 0 15px 0;
+    align-items: center;
+    margin: auto;
 }
 
 #menu li
 {
-    display:inline-block;
     position:relative;
-    background-color: #053C5E;
+    background-color: #053C5E;   
 }
-
-#menu ul li
-{
-    display:inherit;
-}
-
 
 #menu ul
 {
     position:absolute;
     z-index: 2;
     max-height:0;
-    left: 0;
-    right: 0;
     overflow:hidden;
-    -moz-transition: .8s all .3s;
-    -webkit-transition: .8s all .3s;
-    transition: .8s all .3s;
+    -moz-transition: all .8s ease-out;
+    -webkit-transition: all .8s ease-out;
+    transition: all .8s ease-out;
+    padding: 0;   
 }
 
 #menu li:hover ul
 {
-    max-height:15em;
+    max-height:15vw;
+}
+
+#menu a
+{
+    color: #EFE7DA; 
+    padding: 10px;
+}
+
+#menu > li:nth-child(3) > a:nth-child(1)
+{
+    padding: 0px 20px 0px 20px;
+}
+
+#menu li ul li
+{
+    list-style-type: none; 
+    padding : 10px 0px 5px 0px;  
 }
 
 #ul_form
 {
-    width: 200px;
-}
-
-#li_form
-{
-    padding: 15px;
-    padding-top: 0;
+    left: -40px;
 }
 
 #li_form form 
 {
     display: flex;
     flex-direction: column;
+    padding: 0px 20px 10px 20px; 
 }
 
-#li_form > form:nth-child(1) > p
+#menu li ul li form p
 {
-    margin-top: 0;
+    margin: 0px 0px 10px 0px;  
 }
 
-#valid_button
+input#valid_button
 {
     background-color: #053C5E;
     color: #FFF;
     padding: 5px 10px 5px 10px;
+    font-size: 1vw;
 }
 
 #valid_button:hover{
@@ -104,24 +124,9 @@ nav
     cursor: pointer;
 }
 
-#menu a
-{
-    text-decoration:none;
-    display:block;
-    padding:0 40px;
-    color: #EFE7DA;
-}
-
-#menu ul a
-{
-    padding:8px 0;
-}
-
-
 #menu li:hover li a, #menu li ul li form label
 {
-    color:#EFE7DA;    
-    text-transform:inherit;
+    color:#EFE7DA; 
 }
 
 #menu li:hover a, #menu li li:hover a
@@ -131,6 +136,43 @@ nav
 
 
 /*FRONTEND VIEWS*/
+
+#header
+{
+    background-image: url(../images/home.jpg);
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 20px;   
+}
+
+#header_chapter
+{
+    background-image: url(../images/chapter.jpg);
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+#header_about img
+{
+    display: block;
+    margin:auto;
+    margin-top: 50px;
+    width: 20vw;
+}
+
+#header_about h1
+{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 #title_box
 {
     background-color: #BFBFBF;
@@ -140,6 +182,7 @@ nav
     padding: 10px;
     display: flex;
     flex-direction: column;
+    /*transition: all 3s ease-out;*/
 }
 
 h1
@@ -155,6 +198,10 @@ h2
     font-size: 1.5vw;
     color: #2E86AB;
     margin: auto;
+}
+
+p{
+    font-size: 1vw;
 }
 
 #intro
@@ -243,20 +290,18 @@ a
 
 #center_footer img
 {
-    max-height: 50px;
+    width: 5vw;
+    margin: 10px;
+    transition: all .3s ease;
 }
 
-#header
+#center_footer img:hover
 {
-    background-image: url(../images/home.jpg);
-    background-size: cover;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 57px;
-    margin-bottom: 20px;
-    
+    border: solid #FFF 2px;
+    border-radius: 10%;
 }
+
+
 
 .chapters_container
 {
@@ -286,23 +331,13 @@ a
 
 .chapter p
 {
-    padding-right: 5px;
-    padding-left: 5px;
+    padding:5px;
     margin: 0;
     text-align: justify;
     font-family: 'Libre Baskerville', serif;
 }
 
-#header_chapter
-{
-    background-image: url(../images/chapter.jpg);
-    background-size: cover;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 57px;
-    margin-bottom: 20px;
-}
+
 
 .only_chapter
 {
@@ -319,8 +354,7 @@ a
     background-color:#EFE7DA;
     margin-top:0px;
     margin-bottom: 0;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 5px;
     text-align: justify;
     font-family: 'Libre Baskerville', serif;
 }
@@ -393,6 +427,7 @@ a
     background-color: #053C5E;
     color: #FFF;
     padding: 5px 15px 5px 15px;
+    font-size: 1vw;
 }
 
 #submit:hover
@@ -402,18 +437,6 @@ a
     cursor: pointer;
 }
 
-#header_about img
-{
-    display: block;
-    margin:auto;
-    margin-top: 50px;
-}
-
-#header_about h1
-{
-    text-align: center;
-    margin-bottom: 50px;
-}
 
 
 /*ADMIN VIEWS*/
@@ -465,6 +488,7 @@ a
     margin-bottom: 20px;;
     color: #FFF;
     text-align: center;
+    font-size: 1vw;
 }
 
 .admin_button:hover
@@ -490,6 +514,7 @@ a
     background-color: #053C5E;
     color: #FFF;
     padding: 5px 15px 5px 15px;
+    font-size: 1vw;
 }
 
 .admin_form input#delete
@@ -498,7 +523,7 @@ a
     background-color: #053C5E;
     color: #FFF;
     padding: 5px 15px 5px 15px;
-}
+    font-size: 1vw;
 }
 
 #content_text_area, #resume_text_area
@@ -525,6 +550,7 @@ a
     background-color: #053C5E;
     color: #FFF;
     padding: 5px 15px 5px 15px;
+    font-size: 1vw;
 }
 
 .comment form p input#validate:hover, .comment form p input#delete:hover
@@ -546,6 +572,7 @@ a
 {
     display: block;
     margin: auto;
+    width: 15vw;
     
 }
 
@@ -555,7 +582,6 @@ a
     color:#FFF;
     font-size:1vw;
     text-align: center;
-    margin-bottom: 50px;
     padding: 50px;
     
 }
@@ -566,6 +592,7 @@ a
     color: #FFF;
     padding: 10px 25px 10px 25px;
     margin: 10px;
+    font-size: 1vw;
 }
 
 #error_message form input#no:hover, #error_message form input#yes:hover
@@ -609,5 +636,140 @@ a
 {
     color: #E55812;
     border-color: #FFF;
+}
+
+@media all and (max-width: 1024px){
+    em, #signal_comment
+    {
+        font-size: 1vw;
+    }
+    nav, p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button
+    {
+        font-size: 1.5vw;
+    }
+    h1
+    {
+        font-size: 2.5vw;
+    }
+    h2
+    {
+        font-size: 2vw;
+    }
+    #logo
+    {
+        width: 7vw;
+    }
+    #text_center
+    {
+        width: 30%;
+    }
+    #intro
+    {
+        line-height: 2vw;
+    }
+    .admin_button
+    {
+        width: 40%;
+    }
+    #header, #header_chapter,#header_admin
+    {
+        height: 300px;
+    }
+    #error_message
+    {
+        padding: 30px;
+    }
+    #header_error img
+    {
+        width: 20vw;
+    }
+    #menu li:hover ul
+    {
+        max-height:20vw;
+    }   
+    .image_text img
+    {
+        max-width: 30%;
+    }
+}
+
+@media all and (max-width: 768px){ 
+    em, #signal_comment
+    {
+        font-size: 1.5vw;
+    }
+    p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button
+    {
+        font-size: 2.5vw;
+    }
+    nav
+    {
+        font-size: 2vw;
+    }
+    h1
+    {
+        font-size: 3vw;
+    }
+    h2
+    {
+        font-size: 2.5vw;
+    }
+    #logo
+    {
+        width: 9vw;
+    }
+    #text_center
+    {
+        width: 50%;
+    }
+    #intro
+    {
+        line-height: 3vw;
+    }
+    .admin_button
+    {
+        width: 50%;
+    }
+    #header, #header_chapter
+    {
+        height: 150px;
+        margin-top: 40px;
+    }
+    #header_admin
+    {
+       height: 150px; 
+    }
+    #error_message
+    {
+        padding: 10px;
+    }
+    #header_error img
+    {
+        width: 30vw;
+    }
+    nav
+    {
+        height: 40px;
+    }
+     #menu li:hover ul
+    {
+        max-height:50vw;
+    }   
+    #ul_form
+    {
+        left: -150px;
+    }
+    #intro, .chapters_container, .only_chapter, .comments_container, .post_comment, .post_chapter, #comment, #content{
+        width: 90%;
+    }
+     .image_text img
+    {
+        max-width: 40%;
+    }
+    #center_footer img
+    {
+        margin: 5px;
+    }
+    
 }
 

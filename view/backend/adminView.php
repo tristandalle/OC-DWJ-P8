@@ -5,7 +5,7 @@
 <div id="header_admin">
     <div id="title_box_admin">
         <h1>ADMIN</h1>
-        <h2>Bienvenue <?=$_SESSION['pseudo']?>,<br/>vous êtes connecté</h2>
+        <h2>Bienvenue <?=$_SESSION['pseudo']?>, vous êtes connecté</h2>
     </div>
 </div>
 
