@@ -75,7 +75,7 @@ function addChapter($title, $image, $content, $resume)
                     if ($image['size'] <= 5000000){
                         $fileInfo = pathinfo($image['name']);
                         $extensionUpload = $fileInfo['extension'];
-                        $extensionsOk = array('jpg', 'jpeg');
+                        $extensionsOk = array('jpg', 'JPG', 'jpeg', 'JPEG');
                         if (in_array($extensionUpload, $extensionsOk)){
                             $tmp_name = $image["tmp_name"];
                             $name = basename($image["name"]);
@@ -84,15 +84,15 @@ function addChapter($title, $image, $content, $resume)
                             $imageOk = "$uploads_dir/$name";
                         }
                         else{
-                            throw new Exception('le fichier n\'est pas au bon format');
+                            throw new Exception('le fichier image n\'est pas au bon format');
                         }
                     }
                     else{
-                        throw new Exception('le fichier est trop gros');
+                        throw new Exception('le fichier image est trop gros');
                     }
                 }
                 else{
-                    throw new Exception('le transfert du fichier a échoué');
+                    throw new Exception('vous n\'avez pas chargé de fichier image');
                 }
     
     $chapterManager = new Tristan\P8\Model\ChapterManager();
@@ -155,15 +155,15 @@ function rewriteChapter($id, $title, $image, $content, $resume)
                             $imageOk = "$uploads_dir/$name";
                         }
                         else{
-                            throw new Exception('le fichier n\'est pas au bon format');
+                            throw new Exception('le fichier image n\'est pas au bon format');
                         }
                     }
                     else{
-                        throw new Exception('le fichier est trop gros');
+                        throw new Exception('le fichier image est trop gros');
                     }
                 }
                 else{
-                    throw new Exception('le transfert du fichier a échoué');
+                    throw new Exception('vous n\'avez pas chargé de fichier image');
                 }
         $chapterManager = new Tristan\P8\Model\ChapterManager();
         $rewriteLine = $chapterManager->rewriteChapter($id, $title, $imageOk, $content, $resume);
@@ -196,16 +196,6 @@ function updateComment($id, $choice)
     $message = "Voulez-vous vraiment " . strtolower($choice) . "?";
     $link = "confirmUpdateComment&amp;choice= $choice &amp;id= $id ";
     require('view/error/errorConfirmView.php');
-    /*if($choice == "Valider ce commentaire"){
-        $commentManager = new Tristan\P8\Model\CommentManager();
-        $validatedComment = $commentManager->validateSignalComment($id);
-    }
-    else{
-        $commentManager = new Tristan\P8\Model\CommentManager();
-        $delaledComment = $commentManager->delateSignalComment($id);
-    }
-    
-    throw new Exception('Votre choix : " ' . $choice . ' " a bien été pris en compte');*/
 }
 
 function confirmUpdateComment($id, $choice, $confirm){
@@ -256,7 +246,7 @@ function confirmDisconnect($confirm){
 
 
 
-/*POUR AJOUTER UN NOUVEAU MEMBRE ADMIN
+/*FOR ADD ADMIN MUMBER
 function newmember($pseudo, $pass)
 {
     $pass_hache = password_hash($pass, PASSWORD_DEFAULT);

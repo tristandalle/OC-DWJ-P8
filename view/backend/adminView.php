@@ -18,6 +18,7 @@
     <a href="index.php?action=disconnection" class="admin_button">Quitter la page Admin</a>
 </div>
 
+<!--FOR ADD ADMIN MUMBER!-->
 <!--<form action="index.php?action=newmember" method="post">
     <label for="pseudo">pseudo</label>
     <input type="text" name="pseudo">

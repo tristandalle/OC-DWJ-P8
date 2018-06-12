@@ -60,8 +60,7 @@ try{
         }
         elseif ($_GET['action'] == 'addChapter'){
             if (!empty($_POST['title']) && !empty($_FILES['image']) && !empty($_POST['content']) && !empty($_POST['resume'])){
-                
-                    addChapter($_POST['title'], $_FILES['image'], $_POST['content'], $_POST['resume']);
+                addChapter($_POST['title'], $_FILES['image'], $_POST['content'], $_POST['resume']);
             }
             else{
                 throw new Exception('tous les champs ne sont pas remplis');

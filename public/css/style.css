@@ -1,10 +1,21 @@
-/*GENERAL*/
+/*ALL VIEWS*/
 html, body
 {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     background-color: #BFBFBF;
+}
+
+
+/*MENU*/
+
+nav
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #053C5E;
 }
 
 #logo
@@ -16,11 +27,110 @@ html, body
     padding: 2px;
     border-radius: 50%;
     border: solid 3px #053C5E;
-    box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);
-    
+    box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);    
+}
+
+#menu, #menu ul
+{
+    padding:0;
+    margin: 20px;;
+    list-style:none;
+    text-align:center;
+}
+
+#menu li
+{
+    display:inline-block;
+    position:relative;
+    background-color: #053C5E;
+}
+
+#menu ul li
+{
+    display:inherit;
 }
 
 
+#menu ul
+{
+    position:absolute;
+    z-index: 2;
+    max-height:0;
+    left: 0;
+    right: 0;
+    overflow:hidden;
+    -moz-transition: .8s all .3s;
+    -webkit-transition: .8s all .3s;
+    transition: .8s all .3s;
+}
+
+#menu li:hover ul
+{
+    max-height:15em;
+}
+
+#ul_form
+{
+    width: 200px;
+}
+
+#li_form
+{
+    padding: 15px;
+    padding-top: 0;
+}
+
+#li_form form 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#li_form > form:nth-child(1) > p
+{
+    margin-top: 0;
+}
+
+#valid_button
+{
+    background-color: #053C5E;
+    color: #FFF;
+    padding: 5px 10px 5px 10px;
+}
+
+#valid_button:hover{
+    background-color: #E55812;
+    color: #053C5E;
+    cursor: pointer;
+}
+
+#menu a
+{
+    text-decoration:none;
+    display:block;
+    padding:0 40px;
+    color: #EFE7DA;
+}
+
+#menu ul a
+{
+    padding:8px 0;
+}
+
+
+#menu li:hover li a, #menu li ul li form label
+{
+    color:#EFE7DA;    
+    text-transform:inherit;
+}
+
+#menu li:hover a, #menu li li:hover a
+{
+    color:#E55812;
+}
+
+
+/*FRONTEND VIEWS*/
 #title_box
 {
     background-color: #BFBFBF;
@@ -32,14 +142,11 @@ html, body
     flex-direction: column;
 }
 
-
-
 h1
 {
     font-size: 2vw;
     color: #053C5E;
     margin: auto;
-    
 }
 
 h2
@@ -139,8 +246,6 @@ a
     max-height: 50px;
 }
 
-
-/*HOME*/
 #header
 {
     background-image: url(../images/home.jpg);
@@ -172,11 +277,6 @@ a
     
 }
 
-.image_text
-{
-    
-}
-
 .image_text img
 {
     max-width: 20%;
@@ -193,7 +293,6 @@ a
     font-family: 'Libre Baskerville', serif;
 }
 
-/*CHAPTER VIEW */
 #header_chapter
 {
     background-image: url(../images/chapter.jpg);
@@ -244,9 +343,7 @@ a
     padding-left: 5px;
     padding-right: 5px;
     text-align: justify;
-    border-top: solid 3px #053C5E;
-    
-    
+    border-top: solid 3px #053C5E;   
 }
 
 #signal_comment
@@ -256,13 +353,9 @@ a
     font-style: italic;
 }
 
-#signal_comment a:hover{
-    color: #E55812;
-}
-
-.comment p
+#signal_comment a:hover
 {
-    
+    color: #E55812;
 }
 
 .post_comment, .post_chapter
@@ -296,18 +389,34 @@ a
 #submit
 {
     width: 20%;
-    padding: 5px;
     margin-top: 10px;
     background-color: #053C5E;
-    color: #EFE7DA;
+    color: #FFF;
+    padding: 5px 15px 5px 15px;
 }
 
 #submit:hover
 {
-    color: #E55812;
+    background-color: #E55812;
+    color: #053C5E;
+    cursor: pointer;
 }
 
-/*ADMIN VIEW*/
+#header_about img
+{
+    display: block;
+    margin:auto;
+    margin-top: 50px;
+}
+
+#header_about h1
+{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+/*ADMIN VIEWS*/
 #header_admin
 {
     background-image: url(../images/admin.jpg);
@@ -378,17 +487,18 @@ a
 .admin_form input#update
 {
     margin-left: 40px;
-    padding: 5px;
     background-color: #053C5E;
     color: #FFF;
+    padding: 5px 15px 5px 15px;
 }
 
 .admin_form input#delete
 {
     margin-left: 10px;
-    padding: 5px;
     background-color: #053C5E;
     color: #FFF;
+    padding: 5px 15px 5px 15px;
+}
 }
 
 #content_text_area, #resume_text_area
@@ -399,7 +509,10 @@ a
 
 .admin_form input#update:hover, .admin_form input#delete:hover
 {
-    color: #E55812
+    background-color: #E55812;
+    color: #053C5E;
+    cursor: pointer;
+    
 }
 
 #resume_text_area
@@ -411,23 +524,90 @@ a
 {
     background-color: #053C5E;
     color: #FFF;
-    padding: 5px;
+    padding: 5px 15px 5px 15px;
 }
 
 .comment form p input#validate:hover, .comment form p input#delete:hover
 {
-    color: #E55812
+    background-color: #E55812;
+    color: #053C5E;
+    cursor: pointer;
 }
 
-#header_about img
+/*ERROR VIEWS*/
+
+#header_error
 {
-    display: block;
-    margin:auto;
     margin-top: 50px;
-}
-
-#header_about h1
-{
-    text-align: center;
     margin-bottom: 50px;
 }
+
+#header_error img
+{
+    display: block;
+    margin: auto;
+    
+}
+
+#error_message
+{   
+    background-color:#053C5E;
+    color:#FFF;
+    font-size:1vw;
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 50px;
+    
+}
+
+#error_message form input#no, #error_message form input#yes
+{
+    background-color: #053C5E;
+    color: #FFF;
+    padding: 10px 25px 10px 25px;
+    margin: 10px;
+}
+
+#error_message form input#no:hover, #error_message form input#yes:hover
+{
+    background-color: #E55812;
+    color: #053C5E;
+    cursor: pointer;
+}
+
+#error_message h3
+{
+    
+    color: #FFF;
+}
+
+#error_message h3:hover
+{
+    color: #FFF;
+}
+
+.error_mode
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error_button
+{
+    width: 30%;
+    background-color: #053C5E;
+    box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);
+    border: solid 3px #E55812;
+    padding: 10px;
+    margin-bottom: 20px;;
+    color: #FFF;
+    text-align: center;
+}
+
+.error_button:hover
+{
+    color: #E55812;
+    border-color: #FFF;
+}
+

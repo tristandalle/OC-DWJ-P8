@@ -19,7 +19,7 @@ class MemberManager extends Manager
     
     
     
-    /*POUR AJOUTER UN NOUVEAU MEMBRE ADMIN
+    /*FOR ADD ADMIN MUMBER
     public function addMembre($pseudo, $pass_hache)
     {
         $db = $this->dbConnect();
