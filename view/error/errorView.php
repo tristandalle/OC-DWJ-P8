@@ -4,9 +4,28 @@
 
 <?php ob_start(); ?>
 
+<?php $rest = substr($e->getMessage(), -1); ?>
+
+<?php
+if ($rest == "!")
+{
+?>
+<div id="header_error">
+    <img src="public/images/hand.png"/>
+</div>
+<?php
+}
+else
+{
+?>
+
 <div id="header_error">
     <img src="public/images/Signal_attention.png"/>
 </div>
+
+<?php
+}
+?>
 
 <div id="error_message">
 <h3><?= $e->getMessage(); ?></h3>

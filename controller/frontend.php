@@ -101,7 +101,7 @@ function addChapter($title, $image, $content, $resume)
         throw new Exception('impossible d\'ajouter le chapître');
     }
     else {
-        throw new Exception('le chapître " ' . $title . ' " a bien été publié');
+        throw new Exception('le chapître " ' . $title . ' " a bien été publié !');
     }
 }
 
@@ -133,7 +133,7 @@ function confirmDelete($id, $confirm)
         if($confirm == "oui"){
             $chapterManager = new Tristan\P8\Model\ChapterManager();
             $deleteLine = $chapterManager->deleteChapter($id);
-            throw new Exception('le chapître a bien été supprimé');
+            throw new Exception('le chapître a bien été supprimé !');
         }
         else{
             header('Location: index.php?action=adminEdit'); 
@@ -171,7 +171,7 @@ function rewriteChapter($id, $title, $image, $content, $resume)
             throw new Exception('impossible de mettre à jour le chapître');
         }
         else {
-            throw new Exception('le chapître " ' . $title . ' " a bien été mis à jour');
+            throw new Exception('le chapître " ' . $title . ' " a bien été mis à jour !');
     }
 }
 
@@ -210,7 +210,7 @@ function confirmUpdateComment($id, $choice, $confirm){
         $delaledComment = $commentManager->delateSignalComment($id);
     }
     
-    throw new Exception('Votre choix : "' . strtolower($choice) .  '" a bien été pris en compte');
+    throw new Exception('Votre choix : "' . strtolower($choice) .  '" a bien été pris en compte !');
         }
         else{
             echo "<script> javascript:history.go(-2)</script>";
