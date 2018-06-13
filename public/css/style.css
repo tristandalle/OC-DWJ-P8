@@ -518,11 +518,13 @@ a
 
 .admin_form input#update
 {
-    margin-left: 40px;
+    margin-left: 20px;
     background-color: #053C5E;
     color: #FFF;
     padding: 5px 15px 5px 15px;
     font-size: 1vw;
+    
+    /*margin-top: 10px;*/
 }
 
 .admin_form input#delete
@@ -544,8 +546,21 @@ a
 {
     background-color: #E55812;
     color: #053C5E;
-    cursor: pointer;
-    
+    cursor: pointer; 
+}
+
+select  
+{
+    background-color: #E55812;
+    color: #053C5E;
+    padding: 5px 15px 5px 15px;
+    font-size: 1vw;
+}
+
+option
+{
+    background-color: #053C5E;
+    color: #FFF;
 }
 
 #resume_text_area
@@ -591,6 +606,7 @@ a
     font-size:1vw;
     text-align: center;
     padding: 50px;
+    margin-bottom: 20px;
     
 }
 
@@ -635,7 +651,7 @@ a
     box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);
     border: solid 3px #E55812;
     padding: 10px;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
     color: #FFF;
     text-align: center;
 }
@@ -651,7 +667,7 @@ a
     {
         font-size: 1vw;
     }
-    nav, p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button
+    nav, p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button, select, option
     {
         font-size: 1.5vw;
     }
@@ -675,7 +691,7 @@ a
     {
         line-height: 2vw;
     }
-    .admin_button
+    .admin_button, .error_button
     {
         width: 40%;
     }
@@ -710,7 +726,7 @@ a
     {
         font-size: 1.5vw;
     }
-    p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button
+    p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button, select, option
     {
         font-size: 2.5vw;
     }
@@ -738,7 +754,7 @@ a
     {
         line-height: 3vw;
     }
-    .admin_button
+    .admin_button, .error_button
     {
         width: 50%;
     }
@@ -759,7 +775,7 @@ a
     {
         width: 30vw;
     }
-    nav
+    nav 
     {
         height: 40px;
     }
@@ -785,6 +801,17 @@ a
     #h1_about
     {
         margin-bottom: 20px;
+    }
+    .admin_form input#update
+    {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    select
+    {
+        display: flex;
+        margin: auto;
+        margin-top: 5px;
     }
 }
 

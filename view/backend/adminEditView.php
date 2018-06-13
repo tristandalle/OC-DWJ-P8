@@ -15,7 +15,7 @@
     <form action="index.php?action=updateChapter" method="post">
 <p class="admin_form">
     
-    <label for="chapter">Choisissez un chapître : </label>
+    <label for="id">Choisissez un chapître : </label>
 <select name="id"> 
     <?php
     

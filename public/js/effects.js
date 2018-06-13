@@ -9,10 +9,21 @@ var effect = {
     
     
     init : function(){
-        effect.startTitle()
-        effect.startLogo()
-        effect.startImgAbout()
-        effect.startStAbout()
+        if(effect.eltTitle != null){
+            effect.startTitle();
+        }
+        if(effect.elthOne != null && effect.elthTwo != null){
+            effect.startTitle();
+        } 
+        if(effect.eltLogo != null){
+            effect.startLogo();
+        }
+        if(effect.eltImgAbout != null){
+            effect.startImgAbout();
+        }
+        if(effect.eltSubtitleAbout != null){
+            effect.startStAbout();
+        }
         
     },
     
