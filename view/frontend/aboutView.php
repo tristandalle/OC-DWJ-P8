@@ -49,8 +49,8 @@ $titles->closeCursor();
 </nav>
 
 <div id="header_about">
-    <img src="public/images/logoJFhd.png" alt="logo JF"/>
-    <h1>Jean Forteroche</h1>
+    <img id ="img_about" src="public/images/logoJFhd.png" alt="logo JF"/>
+    <h1 id="h1_about">Jean Forteroche</h1>
 </div>
 
 <div id="intro">

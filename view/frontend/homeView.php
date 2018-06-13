@@ -50,8 +50,8 @@ $titles->closeCursor();
 
 <div id="header">
     <div id="title_box">
-        <h1>Billet simple pour l'Alaska</h1>
-        <h2>Jean Forteroche</h2>
+        <h1 id="hOne">Billet simple pour l'Alaska</h1>
+        <h2 id="hTwo">Jean Forteroche</h2>
     </div>
 </div>
 

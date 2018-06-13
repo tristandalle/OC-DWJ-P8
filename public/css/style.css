@@ -27,14 +27,14 @@ nav
     width: 5vw;
     position: absolute;
     left: 5%;
-    top: 10px;
+    top: -200px;
     background-color: #BFBFBF;
     padding: 2px;
     border-radius: 50%;
     border: solid 3px #053C5E;
     box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);  
     z-index: 3;
-    transition: all .3s ease;
+    transition: all 3s ease;
 }
 
 #logo:hover
@@ -65,9 +65,7 @@ nav
     z-index: 2;
     max-height:0;
     overflow:hidden;
-    -moz-transition: all .8s ease-out;
-    -webkit-transition: all .8s ease-out;
-    transition: all .8s ease-out;
+    transition: all 1s ease;
     padding: 0;   
 }
 
@@ -145,7 +143,7 @@ input#valid_button
     display: flex;
     flex-direction: column;
     margin-top: 60px;
-    margin-bottom: 20px;   
+    margin-bottom: 20px;
 }
 
 #header_chapter
@@ -159,18 +157,21 @@ input#valid_button
     margin-bottom: 20px;
 }
 
-#header_about img
+#img_about
 {
     display: block;
     margin:auto;
     margin-top: 50px;
-    width: 20vw;
+    width: 1vw;
+    transition: all 1s ease;
 }
 
-#header_about h1
+#h1_about
 {
     text-align: center;
     margin-bottom: 50px;
+    opacity: 0;
+    transition: all 1s ease;
 }
 
 #title_box
@@ -182,7 +183,8 @@ input#valid_button
     padding: 10px;
     display: flex;
     flex-direction: column;
-    /*transition: all 3s ease-out;*/
+    opacity: 0;
+    transition: all 2s ease;
 }
 
 h1
@@ -196,8 +198,14 @@ h2
 {
     font-style: italic;
     font-size: 1.5vw;
-    color: #2E86AB;
+    color: #E55812;
     margin: auto;
+}
+
+#hOne, #hTwo
+{
+    opacity: 0;
+    transition: all 2s ease;
 }
 
 p{
@@ -691,6 +699,10 @@ a
     {
         max-width: 30%;
     }
+    #h1_about
+    {
+        margin-bottom: 30px;
+    }
 }
 
 @media all and (max-width: 768px){ 
@@ -770,6 +782,9 @@ a
     {
         margin: 5px;
     }
-    
+    #h1_about
+    {
+        margin-bottom: 20px;
+    }
 }
 

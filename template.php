@@ -24,7 +24,7 @@
     <body>
         <?= $content ?>
         
-        <script src="public/js/front.js"></script>
+        <script src="public/js/effects.js"></script>
         <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=hgfv5np9htpj8kze0vkqlfnjqwhvr99sep9zw0q52s56tumu"></script>
         <script src="public/js/tiny.js"></script>
     </body>
