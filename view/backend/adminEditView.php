@@ -5,7 +5,7 @@
 <div id="header_admin">
     <div id="title_box_admin">
         <h1>ADMIN</h1>
-        <h2><?=$_SESSION['pseudo']?>, sur cette page vous pouvez<br/>modifier ou supprimer un chapître</h2>
+        <h2><?=$_SESSION['pseudo']?>, sur cette page vous pouvez<br/>modifier ou supprimer un chapitre</h2>
     </div>
 </div>
 
@@ -15,7 +15,7 @@
     <form action="index.php?action=updateChapter" method="post">
 <p class="admin_form">
     
-    <label for="id">Choisissez un chapître : </label>
+    <label for="id">Choisissez un chapitre : </label>
 <select name="id"> 
     <?php
     

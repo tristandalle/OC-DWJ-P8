@@ -12,7 +12,7 @@
             <a href="index.php?action=accessAbout">&Agrave; propos de l'auteur</a>
         </li>
         <li>
-            <a href="index.php#intro">Chapîtres</a>
+            <a href="index.php#intro">chapitres</a>
             <ul>
                 
 <?php
@@ -56,7 +56,7 @@ $titles->closeCursor();
         <h2><?= $chapter['title']; ?></h2>
     </div>
 </div>
-<a href="index.php#intro"><p id="text_center">Retour à la liste des chapîtres</p></a>
+<a href="index.php#intro"><p id="text_center">Retour à la liste des chapitres</p></a>
 <div class="only_chapter">
     <h3>
         <?= $chapter['title']; ?>

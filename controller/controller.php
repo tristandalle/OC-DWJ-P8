@@ -98,10 +98,10 @@ function addChapter($title, $image, $content, $resume)
     $chapterManager = new Tristan\P8\Model\ChapterManager();
     $newChapterLines = $chapterManager->postChapter($title, $imageOk, $content, $resume);
     if($newChapterLines == false){
-        throw new Exception('impossible d\'ajouter le chapître');
+        throw new Exception('impossible d\'ajouter le chapitre');
     }
     else {
-        throw new Exception('le chapître " ' . $title . ' " a bien été publié !');
+        throw new Exception('le chapitre " ' . $title . ' " a bien été publié !');
     }
 }
 
@@ -117,7 +117,7 @@ function adminEdit()
 function updateChapter($id, $choice)
 {
     if($choice == "Supprimer"){
-        $message = "Voulez-vous vraiment supprimer ce chapître ?";
+        $message = "Voulez-vous vraiment supprimer ce chapitre ?";
         $link = "confirmDelete&amp;id= $id ";
         require('view/error/errorConfirmView.php');
     }
@@ -133,7 +133,7 @@ function confirmDelete($id, $confirm)
         if($confirm == "oui"){
             $chapterManager = new Tristan\P8\Model\ChapterManager();
             $deleteLine = $chapterManager->deleteChapter($id);
-            throw new Exception('le chapître a bien été supprimé !');
+            throw new Exception('le chapitre a bien été supprimé !');
         }
         else{
             header('Location: index.php?action=adminEdit'); 
@@ -168,10 +168,10 @@ function rewriteChapter($id, $title, $image, $content, $resume)
         $chapterManager = new Tristan\P8\Model\ChapterManager();
         $rewriteLine = $chapterManager->rewriteChapter($id, $title, $imageOk, $content, $resume);
         if($rewriteLine == false){
-            throw new Exception('impossible de mettre à jour le chapître');
+            throw new Exception('impossible de mettre à jour le chapitre');
         }
         else {
-            throw new Exception('le chapître " ' . $title . ' " a bien été mis à jour !');
+            throw new Exception('le chapitre " ' . $title . ' " a bien été mis à jour !');
     }
 }
 

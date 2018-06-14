@@ -12,8 +12,15 @@ class ChapterManager extends Manager
         $db = $this->dbConnect();
         $req = $db->query('SELECT id, title, chapter_image, content, chapter_resume, DATE_FORMAT(publication_date, \'%d/%m/%Y à %Hh%imin%ss\') AS publication_date_fr FROM chapters ORDER BY publication_date DESC');
         
-        return $req;
+        return $req; 
+    }
+    
+    public function getTitles()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, title FROM chapters ORDER BY id');
         
+        return $req;
     }
     
     public function getChapter($chapterId)
@@ -26,13 +33,7 @@ class ChapterManager extends Manager
         return $chapter;
     }
     
-    public function getTitles()
-    {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title FROM chapters ORDER BY id');
-        
-        return $req;
-    }
+    
     
     public function postChapter($title, $imageOk, $content, $resume)
     {

@@ -12,8 +12,8 @@
 
 <div class="admin_mode">
    
-    <a href="index.php?action=accessAdminCreate" class="admin_button">Publier un nouveau chapître</a>
-    <a href="index.php?action=adminEdit" class="admin_button">Mettre à jour ou supprimer un chapître</a>
+    <a href="index.php?action=accessAdminCreate" class="admin_button">Publier un nouveau chapitre</a>
+    <a href="index.php?action=adminEdit" class="admin_button">Mettre à jour ou supprimer un chapitre</a>
     <a href="index.php?action=adminModerator" class="admin_button">Modérer les commentaires signalés</a>
     <a href="index.php?action=disconnection" class="admin_button">Quitter la page Admin</a>
 </div>

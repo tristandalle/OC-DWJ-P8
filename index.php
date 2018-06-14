@@ -4,15 +4,12 @@ require('controller/controller.php');
 
 try{
     if (isset($_GET['action'])){
-        if($_GET['action'] == 'home'){
-            home();
-        }
-        elseif ($_GET['action'] == 'chapter'){
+       if ($_GET['action'] == 'chapter'){
                 if (isset($_GET['id']) && $_GET['id'] > 0){
                     chapter();
                 }
                 else{
-                    throw new Exception('aucun identifiant de chapître envoyé');
+                    throw new Exception('aucun identifiant de chapitre envoyé');
                 }
         }
         elseif ($_GET['action'] == 'addComment'){
@@ -25,7 +22,7 @@ try{
                 }
             }
             else{
-                throw new Exception('aucun identifiant de chapître envoyé');
+                throw new Exception('aucun identifiant de chapitre envoyé');
             }
         }
         elseif ($_GET['action'] == 'accessAbout'){

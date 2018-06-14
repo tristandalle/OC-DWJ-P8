@@ -12,7 +12,7 @@
             <a href="index.php?action=accessAbout">&Agrave; propos de l'auteur</a>
         </li>
         <li>
-            <a href="#intro">Chapîtres</a>
+            <a href="#intro">chapitres</a>
             <ul>
 <?php
     while ($menudata = $titles->fetch())
@@ -61,7 +61,7 @@ $titles->closeCursor();
     </p>
 </div>
 
-<p id="text_center"><strong>Derniers chapîtres publiés :</strong></p>
+<p id="text_center"><strong>Derniers chapitres publiés :</strong></p>
 
 <div class="chapters_container">
 <?php
