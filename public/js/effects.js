@@ -5,6 +5,7 @@ var effect = {
     eltLogo : document.getElementById('logo'),
     eltImgAbout : document.getElementById('img_about'),
     eltSubtitleAbout : document.getElementById('h1_about'),
+    eltSignal : document.getElementsByClassName('signal_color'),
     
     
     
@@ -24,7 +25,22 @@ var effect = {
         if(effect.eltSubtitleAbout != null){
             effect.startStAbout();
         }
+        effect.colorSignal();
         
+    },
+    
+    colorSignal: function(){
+        for (i=0; i<effect.eltSignal.length; i++){
+            if(effect.eltSignal[i].textContent === "Ce commentaire a été validé "){
+                effect.eltSignal[i].style.color = "#16B84E";
+            }
+            else if(effect.eltSignal[i].textContent === "Ce commentaire a été signalé"){
+                effect.eltSignal[i].style.color = "#FF0000 ";
+            }
+            else if(effect.eltSignal[i].textContent === "Signaler ce commentaire"){
+                effect.eltSignal[i].style.color = "#053C5E";
+            }
+        }
     },
     
     

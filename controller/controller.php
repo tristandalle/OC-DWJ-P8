@@ -22,6 +22,7 @@ function chapter()
     $comments = $commentManager->getComments($_GET['id']);
     $chapterManager = new Tristan\P8\Model\ChapterManager();
     $titles = $chapterManager->getTitles();
+    
     require('view/frontend/chapterView.php');
 }
 
@@ -180,7 +181,7 @@ function signalComment($commentId, $chapterId)
     $commentManager = new Tristan\P8\Model\CommentManager();
     $signaledLine = $commentManager->changeSignalComment($commentId);
     
-    header('Location: index.php?action=chapter&id='. $chapterId);
+    header('Location: index.php?action=chapter&id='. $chapterId . '#signal_comment');
 }
 
 function moderateComments()

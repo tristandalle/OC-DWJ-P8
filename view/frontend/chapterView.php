@@ -12,7 +12,7 @@
             <a href="index.php?action=accessAbout">&Agrave; propos de l'auteur</a>
         </li>
         <li>
-            <a href="index.php#intro">chapitres</a>
+            <a href="index.php#intro">Chapitres</a>
             <ul>
                 
 <?php
@@ -76,7 +76,7 @@ while ($comment = $comments->fetch()){
 ?>
 <div class="comment">
     <p>
-        <span id="signal_comment"><a href="index.php?action=signalComment&amp;id=<?= $comment['id']?>&amp;chapterId=<?= $chapter['id'] ?>"><?= $comment['comment_signal'] ?></a></span>
+        <span id="signal_comment"><a class="signal_color" href="index.php?action=signalComment&amp;id=<?= $comment['id']?>&amp;chapterId=<?= $chapter['id'] ?>"><?= $comment['comment_signal'] ?></a></span>
         <em>Posté par : <?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></em><br/>
         <?= nl2br(htmlspecialchars($comment['comment'])) ?>
     </p>      

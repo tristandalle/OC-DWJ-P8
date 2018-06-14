@@ -12,7 +12,7 @@
             <a href="index.php?action=accessAbout">&Agrave; propos de l'auteur</a>
         </li>
         <li>
-            <a href="#intro">chapitres</a>
+            <a href="#intro">Chapitres</a>
             <ul>
 <?php
     while ($menudata = $titles->fetch())

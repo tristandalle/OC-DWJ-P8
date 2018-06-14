@@ -395,11 +395,6 @@ a
     font-style: italic;
 }
 
-#signal_comment a:hover
-{
-    color: #E55812;
-}
-
 .post_comment, .post_chapter
 {
     width:80%;
@@ -661,6 +656,7 @@ option
     color: #E55812;
     border-color: #FFF;
 }
+
 
 @media all and (max-width: 1024px){
     em, #signal_comment
