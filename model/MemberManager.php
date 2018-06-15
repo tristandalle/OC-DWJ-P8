@@ -17,9 +17,6 @@ class MemberManager extends Manager
         return $verify;
     }
     
-    
-    
-    /*FOR ADD ADMIN MUMBER
     public function addMembre($pseudo, $pass_hache)
     {
         $db = $this->dbConnect();
@@ -27,6 +24,6 @@ class MemberManager extends Manager
         $newLine = $member->execute(array('pseudo' => $pseudo, 'pass' => $pass_hache));
     
         return $newLine;
-    }*/
+    }
     
 }

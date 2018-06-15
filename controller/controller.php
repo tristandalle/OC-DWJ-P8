@@ -14,6 +14,14 @@ function home()
     require('view/frontend/homeView.php');
 }
 
+function accessAbout()
+{
+    $chapterManager = new Tristan\P8\Model\ChapterManager();
+    $titles = $chapterManager->getTitles();
+    
+    require('view/frontend/aboutView.php');
+}
+
 function chapter()
 {
     $chapterManager = new Tristan\P8\Model\ChapterManager();
@@ -34,8 +42,16 @@ function addComment($chapterId, $author, $comment)
         throw new Exception('impossible d\'ajouter le commentaire');
     }
     else {
-        header('Location: index.php?action=chapter&id='. $chapterId);
+        header('Location: index.php?action=chapter&id='. $chapterId . '#signal_comment');
     }
+}
+
+function signalComment($commentId, $chapterId)
+{
+    $commentManager = new Tristan\P8\Model\CommentManager();
+    $signaledLine = $commentManager->changeSignalComment($commentId);
+    
+    header('Location: index.php?action=chapter&id='. $chapterId . '#signal_comment');
 }
 
 function accessAdmin($pseudo, $pass)
@@ -61,10 +77,6 @@ function accessAdmin($pseudo, $pass)
     }
 }
 
-function accessHomeAdmin()
-{
-    require('view/backend/adminView.php');
-}
 function accessAdminCreate()
 {
     require('view/backend/adminCreateView.php');
@@ -106,7 +118,6 @@ function addChapter($title, $image, $content, $resume)
     }
 }
 
-
 function adminEdit()
 {
     $chapterManager = new Tristan\P8\Model\ChapterManager();
@@ -128,17 +139,6 @@ function updateChapter($id, $choice)
         require('view/backend/adminRewriteView.php');
     }
     
-}
-function confirmDelete($id, $confirm)
-{
-        if($confirm == "oui"){
-            $chapterManager = new Tristan\P8\Model\ChapterManager();
-            $deleteLine = $chapterManager->deleteChapter($id);
-            throw new Exception('le chapitre a bien été supprimé !');
-        }
-        else{
-            header('Location: index.php?action=adminEdit'); 
-        }
 }
 
 function rewriteChapter($id, $title, $image, $content, $resume)
@@ -176,12 +176,16 @@ function rewriteChapter($id, $title, $image, $content, $resume)
     }
 }
 
-function signalComment($commentId, $chapterId)
+function confirmDelete($id, $confirm)
 {
-    $commentManager = new Tristan\P8\Model\CommentManager();
-    $signaledLine = $commentManager->changeSignalComment($commentId);
-    
-    header('Location: index.php?action=chapter&id='. $chapterId . '#signal_comment');
+        if($confirm == "oui"){
+            $chapterManager = new Tristan\P8\Model\ChapterManager();
+            $deleteLine = $chapterManager->deleteChapter($id);
+            throw new Exception('le chapitre a bien été supprimé !');
+        }
+        else{
+            header('Location: index.php?action=adminEdit'); 
+        }
 }
 
 function moderateComments()
@@ -218,12 +222,23 @@ function confirmUpdateComment($id, $choice, $confirm){
         }
 }
 
-function accessAbout()
+function createAdminMember()
 {
-    $chapterManager = new Tristan\P8\Model\ChapterManager();
-    $titles = $chapterManager->getTitles();
+    require('view/backend/adminCreateMemberView.php');
+}
+
+function newMember($pseudo, $pass)
+{
+    $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+    $memberManager = new Tristan\P8\Model\MemberManager();
+    $newLine = $memberManager->addMembre($pseudo, $pass_hache);
     
-    require('view/frontend/aboutView.php');
+    throw new Exception('Le nouvel admnistrateur "' . $pseudo .  '" a bien été inscrit !');
+}
+
+function accessHomeAdmin()
+{
+    require('view/backend/adminView.php');
 }
 
 function disconnection()
@@ -245,14 +260,4 @@ function confirmDisconnect($confirm){
 }
 
 
-
-
-/*FOR ADD ADMIN MUMBER
-function newmember($pseudo, $pass)
-{
-    $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
-    $memberManager = new Tristan\P8\Model\MemberManager();
-    $newLine = $memberManager->addMembre($pseudo, $pass_hache);
-    echo "ok membre ajouté";
-}*/
     

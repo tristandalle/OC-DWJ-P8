@@ -36,4 +36,3 @@ Construire une base de données
 Soutenir et argumenter ses propositions
 Insérer ou modifier les données d’une base
 Récupérer les données d’une base
-

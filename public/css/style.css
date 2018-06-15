@@ -488,7 +488,7 @@ a
     box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);
     border: solid 3px #E55812;
     padding: 10px;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
     color: #FFF;
     text-align: center;
     font-size: 1vw;
@@ -518,8 +518,6 @@ a
     color: #FFF;
     padding: 5px 15px 5px 15px;
     font-size: 1vw;
-    
-    /*margin-top: 10px;*/
 }
 
 .admin_form input#delete
@@ -535,6 +533,11 @@ a
 {
     width: 90%;
     margin: auto;
+}
+
+#resume_text_area
+{
+    margin-top: 16px;
 }
 
 .admin_form input#update:hover, .admin_form input#delete:hover
@@ -558,11 +561,6 @@ option
     color: #FFF;
 }
 
-#resume_text_area
-{
-    margin-top: 16px;
-}
-
 .comment form p input#validate, .comment form p input#delete
 {
     background-color: #053C5E;
@@ -577,6 +575,42 @@ option
     color: #053C5E;
     cursor: pointer;
 }
+
+.inscription_container
+{
+    width: 30%;
+    margin: auto;
+    background-color: #053C5E;
+    box-shadow: 4px -4px 5px 2px rgba(0, 0, 0, .3);
+    border: solid 3px #E55812;
+    padding: 10px;
+    margin-bottom: 50px;;
+    color: #FFF;
+    text-align: center;
+}
+
+.inscription_container form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inscription_container form p input#submit
+{
+    width: 100%;
+    background-color: #053C5E;
+    color: #FFF;
+    padding: 5px 15px 5px 15px;
+    font-size: 1vw;
+}
+
+.inscription_container form p input#submit:hover
+{
+    background-color: #E55812;
+    color: #053C5E;
+}
+
 
 /*ERROR VIEWS*/
 
@@ -663,7 +697,7 @@ option
     {
         font-size: 1vw;
     }
-    nav, p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button, select, option
+    nav, p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button, select, option, .inscription_container form p input#submit
     {
         font-size: 1.5vw;
     }
@@ -687,7 +721,7 @@ option
     {
         line-height: 2vw;
     }
-    .admin_button, .error_button
+    .admin_button, .error_button, .inscription_container
     {
         width: 40%;
     }
@@ -722,7 +756,7 @@ option
     {
         font-size: 1.5vw;
     }
-    p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button, select, option
+    p, h3, h4, #submit, .admin_form input#update, .admin_form input#delete, .comment form p input#validate, .comment form p input#delete, #error_message, #error_message form input#no, #error_message form input#yes, .admin_button, input#valid_button, select, option, .inscription_container form p input#submit
     {
         font-size: 2.5vw;
     }
@@ -750,7 +784,7 @@ option
     {
         line-height: 3vw;
     }
-    .admin_button, .error_button
+    .admin_button, .error_button, .inscription_container
     {
         width: 50%;
     }

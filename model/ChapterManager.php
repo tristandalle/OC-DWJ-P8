@@ -33,8 +33,6 @@ class ChapterManager extends Manager
         return $chapter;
     }
     
-    
-    
     public function postChapter($title, $imageOk, $content, $resume)
     {
         $db = $this->dbConnect();
@@ -42,15 +40,6 @@ class ChapterManager extends Manager
         $newChapterLines = $newChapter->execute(array($title, $imageOk, $content, $resume));
         
         return $newChapterLines;
-    }
-    
-    public function deleteChapter($id)
-    {
-        $db = $this->dbConnect();
-        $chapters = $db->prepare('DELETE FROM chapters WHERE id=:id');
-        $deleteLine = $chapters->execute(array('id' => $id));
-        
-        return $deleteLine;
     }
     
     public function rewriteChapter($id, $title, $imageOk, $content, $resume)
@@ -62,6 +51,15 @@ class ChapterManager extends Manager
         return $rewriteLine;
     }
     
+    public function deleteChapter($id)
+    {
+        $db = $this->dbConnect();
+        $chapters = $db->prepare('DELETE FROM chapters WHERE id=:id');
+        $deleteLine = $chapters->execute(array('id' => $id));
+        
+        return $deleteLine;
+    }
+
 }
 
     
