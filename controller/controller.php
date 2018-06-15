@@ -67,7 +67,6 @@ function accessAdmin($pseudo, $pass)
     else{
         if($correctPassword){
             session_start();
-            $_SESSION['id'] = $verify['id'];
             $_SESSION['pseudo'] = $pseudo;
             require('view/backend/adminView.php');
         }
