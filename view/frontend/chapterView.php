@@ -36,11 +36,11 @@ $titles->closeCursor();
                     <form action="index.php?action=accessAdmin" method="post">
                         <p>
                             <label for="pseudo">Pseudo</label>
-                            <input type="text" name="pseudo">
+                            <input type="text" name="pseudo" id="pseudo">
                         </p>
                         <p>
                             <label for="pass">Mot de passe </label>
-                            <input type="password" name="pass" />
+                            <input type="password" name="pass" id="pass"/>
                         </p>
                         <input id="valid_button" type="submit" value="Valider" />
                     </form>
@@ -109,10 +109,10 @@ while ($comment = $comments->fetch()){
         <p>Jean Forteroche<br/>Maison d'édition JF<br/>128, rue des éditeurs<br/>75017 Paris</p>
     </div>
     <div id="center_footer">
-        <a href="#center_footer"><img src="public/images/if_square-facebook_317727.png"/></a>
-        <a href="#center_footer"><img src="public/images/if_square-twitter_317723.png"/></a>
-        <a href="#center_footer"><img src="public/images/if_square-google-plus_317726.png"/></a>
-        <a href="#center_footer"><img src="public/images/if_instagram_317738.png"/></a>
+        <a href="#center_footer"><img src="public/images/if_square-facebook_317727.png" alt="logo facebook"/></a>
+        <a href="#center_footer"><img src="public/images/if_square-twitter_317723.png" alt="logo twitter"/></a>
+        <a href="#center_footer"><img src="public/images/if_square-google-plus_317726.png" alt="logo google plus"/></a>
+        <a href="#center_footer"><img src="public/images/if_instagram_317738.png" alt="logo instagram"/></a>
     </div>
     <div id="right_footer">
         <p>© JForteroche 2018</p>
