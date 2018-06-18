@@ -92,7 +92,12 @@ try{
         }
         elseif ($_GET['action'] == 'createAdminMember'){
             session_start();
-            createAdminMember();
+            if(isset($_SESSION['pseudo'])){
+                createAdminMember();
+            }
+            else{
+                throw new Exception('Vous n\'êtes pas connecté');
+            }  
         }
         elseif ($_GET['action'] == 'newMember'){
             if(!isset($_POST['pseudo']) || empty($_POST['pseudo']) && !isset($_POST['pass']) || empty($_POST['pass']) && !isset($_POST['repass']) || empty($_POST['repass'])){
