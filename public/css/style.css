@@ -774,7 +774,7 @@ option
     }
     #logo
     {
-        width: 9vw;
+        display: none;
     }
     #text_center
     {

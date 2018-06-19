@@ -18,7 +18,7 @@ while ($signaledComment = $signaledComments->fetch()){
 <div class="comment">
     <form action="index.php?action=updateComment&amp;id=<?= $signaledComment['id'] ?>" method="post">
     <p>
-        <em>Posté par : <?= $signaledComment['author'] ?> le <?= $signaledComment['comment_date_fr'] ?></em><br/>
+        <em>Posté par : <?= htmlspecialchars($signaledComment['author']) ?> le <?= $signaledComment['comment_date_fr'] ?></em><br/>
         <?= nl2br(htmlspecialchars($signaledComment['comment'])) ?>
     </p>
     <p>
